@@ -6,6 +6,8 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Course from '../api/user/course.model';
+import Student from '../api/user/student.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -42,18 +44,21 @@ Thing.find({}).removeAsync()
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
-      provider: 'local',
-      name: 'Test User',
-      email: 'test@example.com',
-      password: 'test'
-    }, {
-      provider: 'local',
-      role: 'admin',
-      name: 'Admin',
-      email: 'admin@example.com',
-      password: 'admin'
-    })
-    .then(() => {
-      console.log('finished populating users');
-    });
-  });
+         _id: '569e69cc1ab998358d37667e',
+         provider: 'local',
+         name: 'Test User',
+         email: 'test@example.com',
+         role: ['user'],
+         password: 'test'
+       }, {
+         _id: '569e69cc1ab998358d37667d',
+         provider: 'local',
+         role: ['admin', 'user', 'superAdmin'],
+         name: 'Admin',
+         email: 'admin@example.com',
+         password: 'admin'
+       })
+       .then(() => {
+         console.log('finished populating users');
+       });
+   });
