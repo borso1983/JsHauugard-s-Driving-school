@@ -3,12 +3,16 @@
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
 
 var CourseSchema = new mongoose.Schema({
-  startDate: Date,
-  endDate: Date,
+  week : Number,
+  date: {
+      start: Date,
+      end: Date
+  },
   availablePlace: Number,
   Description : String,
   students: [{
-    
+    type: Schema.ObjectId,
+    ref: 'student'
   }]
 });
 
