@@ -1,4 +1,4 @@
-'use strict';
+'use sweetrict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose')), Schema = mongoose.Schema;
 
@@ -8,7 +8,13 @@ var CourseSchema = new mongoose.Schema({
       start: Date,
       end: Date
   },
-  availablePlace: Number,
+
+  capacity : Number,
+    availablePlace: {
+    type :Number,
+    default: 0
+  },
+
   description : String,
   students: [{
      type: mongoose.Schema.ObjectId,

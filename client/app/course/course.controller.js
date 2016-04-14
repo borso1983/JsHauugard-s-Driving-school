@@ -17,4 +17,15 @@ angular.module('finalProjectApp')
        .error(function(err) {
          alert('Error! Something went wrong');
        });
+
+    $scope.addNewCourse = function(){
+     $http.post('/api/courses', $scope.newCourse)
+     .success(function(){
+       $scope.course.push($scope.newCourse);
+       $scope.newCourse = {};
+     })
+     .error(function(err){
+       alert('Error! Something went wrong');
+     });
+   };
   });
