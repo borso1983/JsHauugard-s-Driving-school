@@ -11,8 +11,8 @@ var CourseSchema = new mongoose.Schema({
   availablePlace: Number,
   Description : String,
   students: [{
-    type: Schema.ObjectId,
-    ref: 'student'
+     type: mongoose.Schema.ObjectId,
+      ref: 'Student'
   }]
 });
 

@@ -4,42 +4,11 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
-import Course from '../api/user/course.model';
-import Student from '../api/user/student.model';
+import Course from '../api/course/course.model';
+import Student from '../api/student/student.model';
 
-Thing.find({}).removeAsync()
-  .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
-    });
-  });
+
 
 User.find({}).removeAsync()
   .then(() => {
@@ -50,7 +19,23 @@ User.find({}).removeAsync()
          email: 'test@example.com',
          role: ['user'],
          password: 'test'
-       }, {
+       },
+       {
+       _id: '569e69cc1ab998358d376678',
+       provider: 'local',
+       name: 'Test1 User',
+       email: 'user1@example.com',
+       role: ['user'],
+       password: 'test1'
+     },
+     {
+     _id: '569e69cc1ab998358d37667a',
+     provider: 'local',
+     name: 'Test2 User',
+     email: 'user2@example.com',
+     role: ['user'],
+     password: 'test2'
+   }, {
          _id: '569e69cc1ab998358d37667d',
          provider: 'local',
          role: ['admin', 'user', 'superAdmin'],
@@ -62,3 +47,76 @@ User.find({}).removeAsync()
          console.log('finished populating users');
        });
    });
+   Student.find({}).removeAsync()
+     .then(() => {
+       Student.createAsync(
+         {
+          _id: '569e69cc1ab998358d376677',
+         firstName: 'First',
+         lastName: 'User',
+         telNum : '28 911 848',
+
+         address: {
+           city: 'Esbjerg',
+           zipCode : 6700,
+           street : 'Spangsbjerg Kirkevej',
+           streetNumber : 20
+         },
+         owner: '569e69cc1ab998358d376678',
+         course :'119e69cc1ab998358d376677',
+         calendar: [{
+           eventDate: '12/10/2015',
+           description: '10.00 introduction'},
+           {
+           eventDate: '08/10/2015',
+           description: '16.00 theori'},
+           {
+          eventDate: '10/10/2015',
+           description: '16.00 theori'
+         }],
+       },
+         {
+           _id: '569e69cc1ab998358d37667a',
+         firstName: 'Second',
+         lastName: 'Student',
+         telNum : '48 911 848',
+
+         address: {
+           city: 'Esbjerg',
+           zipCode : 6700,
+           street : 'Spangsbjerg Kirkevej',
+           streetNumber : 25
+         },
+         owner: '569e69cc1ab998358d37667a',
+         course :'119e69cc1ab998358d376677',
+         calendar: [{
+           eventDate: '12/10/2015',
+           description: '10.00 introduction'},
+           {
+           eventDate: '08/10/2015',
+           description: '16.00 theori'},
+           {
+          eventDate: '10/10/2015',
+           description: '16.00 theori'
+         }],
+       })
+     .then(() => {
+       console.log('finished populating students');
+     });
+ });
+
+Course.find({}).removeAsync()
+  .then(() => {
+    Course.createAsync({
+      _id: '119e69cc1ab998358d376677',
+      startDate: '12/10/2015' ,
+        endDate: '12/01/2016' ,
+        availablePlace: 20,
+        Description : 'Driving Lessons',
+        students: ['569e69cc1ab998358d376677', '569e69cc1ab998358d37667a'
+      ]
+    })
+    .then(() => {
+        console.log('finished populating courses');
+      });
+  });
