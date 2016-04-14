@@ -8,7 +8,10 @@ var CourseSchema = new mongoose.Schema({
   availablePlace: Number,
   Description : String,
   students: [{
-    
+
+     type: mongoose.Schema.ObjectId,
+      ref: 'Student'
+
   }]
 });
 
