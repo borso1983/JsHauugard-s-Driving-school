@@ -9,7 +9,7 @@ var CourseSchema = new mongoose.Schema({
       end: Date
   },
   availablePlace: Number,
-  Description : String,
+  description : String,
   students: [{
      type: mongoose.Schema.ObjectId,
       ref: 'Student'
