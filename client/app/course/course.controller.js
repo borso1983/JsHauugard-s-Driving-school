@@ -28,4 +28,15 @@ angular.module('finalProjectApp')
        alert('Error! Something went wrong');
      });
    };
+
+   $scope.deleteGame = function(index){
+      $http.delete('/api/courses/' + $scope.courses[index]._id)
+      .success(function(){
+        $scope.courses.splice(index, 1);
+      })
+      .error(function(err){
+        alert('Error! Something went wrong');
+      });
+    };
+
   });

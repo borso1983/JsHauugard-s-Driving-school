@@ -7,9 +7,12 @@
 </ul>
 <br />
 <ul>
-  <li ng-repeat="course in courses" ><a href="#" tooltip="{{course.occupied}}/{{course.capacity}}">
-    {{course.description}}
-  </a></li>
+  <li ng-repeat="course in courses" >
+    <a  href="#" tooltip="{{course.occupied}}/{{course.capacity}}">
+      {{course.description}}
+    </a>
+    <button class="btn btn-danger" ng-click="deleteGame($index)">Delete</button>
+  </li>
 </ul>
 <form>
 <div class="form-group">
