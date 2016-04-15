@@ -7,7 +7,7 @@
 </ul>
 <br />
 <ul>
-  <li ng-repeat="course in courses" ><a href="#" tooltip="{{course.availablePlace}}/{{course.capacity}}">
+  <li ng-repeat="course in courses" ><a href="#" tooltip="{{course.occupied}}/{{course.capacity}}">
     {{course.description}}
   </a></li>
 </ul>
@@ -28,5 +28,6 @@
 <div class="row">
   <button class="btn btn-primary" ng-click="addNewCourse()">Create New</button>
 </div>
+<div class=""></div>
 
 </form>

@@ -111,8 +111,9 @@ Course.find({}).removeAsync()
       _id: '119e69cc1ab998358d376677',
       startDate: '12/10/2015' ,
         endDate: '12/01/2016' ,
+        week: 25,
         capacity: 20,
-        availablePlace: 16,
+        occupied: 16,
         description : 'Driving Lessons',
         students: ['569e69cc1ab998358d376677', '569e69cc1ab998358d37667a'
       ]

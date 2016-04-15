@@ -8,13 +8,11 @@ var CourseSchema = new mongoose.Schema({
       start: Date,
       end: Date
   },
-
-  capacity : Number,
-    availablePlace: {
-    type :Number,
+    capacity : Number,
+    occupied :{
+    type : Number,
     default: 0
   },
-
   description : String,
   students: [{
      type: mongoose.Schema.ObjectId,

@@ -21,7 +21,7 @@ angular.module('finalProjectApp')
     $scope.addNewCourse = function(){
      $http.post('/api/courses', $scope.newCourse)
      .success(function(){
-       $scope.course.push($scope.newCourse);
+       $scope.courses.push($scope.newCourse);
        $scope.newCourse = {};
      })
      .error(function(err){
