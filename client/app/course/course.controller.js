@@ -18,7 +18,7 @@ angular.module('finalProjectApp')
          console.log($scope.courses);
        });
         socket.syncUpdates('course', $scope.courses);
-      
+       });
 
     $scope.addNewCourse = function(){
      $http.post('/api/courses', $scope.newCourse)
