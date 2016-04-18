@@ -18,7 +18,7 @@ function respondWithResult(res, statusCode) {
     if (entity) {
       res.status(statusCode).json(entity);
     }
-  };
+  }; 
 }
 
 function saveUpdates(updates) {

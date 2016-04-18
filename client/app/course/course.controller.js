@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('CourseCtrl', function ($scope, $http) {
+  .controller('CourseCtrl', function ($scope, $http, socket) {
+
     $scope.message = [{
       name : 'joska',
       gender : 'jedi'
@@ -9,34 +10,35 @@ angular.module('finalProjectApp')
       name : 'shannyi',
       gender : 'pultos'
     }];
+
     $http.get('/api/courses')
        .success(function(data) {
          $scope.courses = data;
+         socket.syncUpdates('course', $scope.courses);
          console.log($scope.courses);
-       })
-       .error(function(err) {
-         alert('Error! Something went wrong');
+       });
+        socket.syncUpdates('course', $scope.courses);
        });
 
     $scope.addNewCourse = function(){
      $http.post('/api/courses', $scope.newCourse)
-     .success(function(){
-       $scope.courses.push($scope.newCourse);
+     .success(function(course){
+       $scope.courses.push(course);
        $scope.newCourse = {};
-     })
-     .error(function(err){
-       alert('Error! Something went wrong');
      });
+    //socket.syncUpdates('course', $scope.courses);
    };
 
-   $scope.deleteGame = function(index){
-      $http.delete('/api/courses/' + $scope.courses[index]._id)
+
+   $scope.deleteCourse = function(course){
+      $http.delete('/api/courses/' + course._id)
       .success(function(){
-        $scope.courses.splice(index, 1);
-      })
-      .error(function(err){
-        alert('Error! Something went wrong');
+        //$scope.courses.splice(index, 1);
       });
+      socket.syncUpdates('course', $scope.courses);
     };
 
+    $scope.$on('$destroy', function() {
+      socket.unsyncUpdates('course');
+    });
   });
