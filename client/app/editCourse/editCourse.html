@@ -1,2 +1,41 @@
 <div>This is the editCourse view.</div>
-<h1>{{message}}</h1>
+<h1>{{course.description}}</h1>
+
+
+  <md-content layout-padding>
+    <div>
+      <form name="userForm">
+        <div layout-gt-xs="row">
+          <label> Start Date </label>
+          <md-datepicker ng-model="course.date.start" md-placeholder="Enter date">
+          </md-datepicker>
+          <label>End Date</label>
+          <md-datepicker ng-model="course.date.end" md-placeholder="Enter date">
+          </md-datepicker>
+        </div>
+
+
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Description</label>
+            <input ng-model="course.description">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Capacity</label>
+            <input name="capacity" ng-model="course.capacity" placeholder="12345"
+                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+            <div ng-messages="userForm.course.$error" role="alert" multiple>
+
+              <div ng-message="pattern" class="my-message">Numbers only please!
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                That would be a little bit too much...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+
+      </form>
+    </div>
+  </md-content>
