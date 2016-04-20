@@ -7,5 +7,11 @@ angular.module('finalProjectApp')
         url: '/course',
         templateUrl: 'app/course/course.html',
         controller: 'CourseCtrl'
+      })
+
+      .state('editCourse', {
+        url: '/course/:id',
+        templateUrl: 'app/course/editCourse.html',
+        controller: 'EditCourseCtrl'
       });
   });
