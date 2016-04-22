@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: EditCourseCtrl', function () {
+describe('Controller: StudentCtrl', function () {
 
   // load the controller's module
   beforeEach(module('finalProjectApp'));
 
-  var EditCourseCtrl, scope;
+  var StudentCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    EditCourseCtrl = $controller('EditCourseCtrl', {
+    StudentCtrl = $controller('StudentCtrl', {
       $scope: scope
     });
   }));
