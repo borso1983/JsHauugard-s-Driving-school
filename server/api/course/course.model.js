@@ -1,4 +1,4 @@
-'use sweetrict';
+'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose')), Schema = mongoose.Schema;
 
