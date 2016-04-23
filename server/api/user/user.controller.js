@@ -121,3 +121,17 @@ export function me(req, res, next) {
 export function authCallback(req, res, next) {
   res.redirect('/');
 }
+
+
+export function getUserIdByEmail(req, res, next){
+  var email = req.params.email;
+
+  User.findOneAsync({ email : email }, '-salt -password')
+    .then(user => {
+      if (!user) {
+        return res.status(401).end();
+      }
+      res.json(user._id);
+    })
+    .catch(err => next(err));
+}
