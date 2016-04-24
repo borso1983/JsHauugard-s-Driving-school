@@ -14,26 +14,36 @@
           </md-datepicker>
         </div>
 
-
-
         <div layout-gt-sm="row">
+
           <md-input-container class="md-block" flex-gt-sm>
             <label>Description</label>
-            <input ng-model="course.description">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Capacity</label>
-            <input name="capacity" ng-model="course.capacity" placeholder="12345"
-                   required  type="Number" md-maxlength="5">
-            <div ng-messages="userForm.capacity.$error" role="alert" multiple>
-
-
+            <input ng-model="course.description" md-maxlength="25">
+            <div ng-messages="userForm.$error" role="alert" multiple>
               <div ng-message="md-maxlength" class="my-message">
                 That would be a little bit too much...
               </div>
             </div>
-
           </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Week Nr.:</label>
+            <input  ng-model="course.week" placeholder="123" required="requireMessage"  >
+            <div ng-messages="userForm.$error" role="alert" multiple>
+              <div ng-message="requireMessage" class="my-message">
+                You need to add the week number...
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Capacity</label>
+            <input  ng-model="course.capacity" placeholder="123" >
+            <div ng-messages="userForm.$error" role="alert" multiple>
+              <div ng-message="md-maxlength" class="my-message">
+                That would be a little bit too much...
+              </div>
+            </div>
+          </md-input-container>
+
         </div>
 
       </form>

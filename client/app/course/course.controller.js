@@ -3,13 +3,6 @@
 angular.module('finalProjectApp')
   .controller('CourseCtrl', function ($scope, $http, $state, socket) {
 
-    $scope.message = [{
-      name : 'joska',
-      gender : 'jedi'
-    },{
-      name : 'shannyi',
-      gender : 'pultos'
-    }];
 
     $http.get('/api/courses')
        .success(function(data) {
