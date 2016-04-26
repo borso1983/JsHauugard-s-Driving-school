@@ -8,12 +8,14 @@ angular.module('finalProjectApp')
      socket.syncUpdates('student', $scope.students);
    });
 
-   $scope.getStudent = function(student){
-         $state.go('student-details', {
+   /*$scope.getStudent = function(student){
+         $state.go('getStudent', {
              id: student._id
 
          });
-       }
+       };*/
+
+
 
     $scope.createStudent = function(){
         if ($scope.form.$valid) {
@@ -45,10 +47,7 @@ angular.module('finalProjectApp')
 
     };
 
-    $scope.$on('$destroy', function(){
-     socket.unsyncUpdates('student');
 
-   });
 
    $scope.deleteStudent = function(student){
      StudentService.delete({id: student._id}, function(student){
@@ -56,7 +55,7 @@ angular.module('finalProjectApp')
 
      });
 
-   }
+   };
 
     $scope.getUserIdByEmail = function(email, callback) {
       $http.get('/api/users/getId/' + email).then(response => {
@@ -73,4 +72,16 @@ angular.module('finalProjectApp')
    };
 
    */
+   $scope.goToStudent= function(student){
+
+     $state.go('getStudent',{
+       id:student._id
+     });
+   }
+
+
+   $scope.$on('$destroy', function(){
+    socket.unsyncUpdates('student');
+
+  });
   });
