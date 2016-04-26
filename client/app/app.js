@@ -11,7 +11,9 @@ angular.module('finalProjectApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'ngMaterial'
+  'ngMaterial',
+  'ngMessages',
+  'ngAnimate'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

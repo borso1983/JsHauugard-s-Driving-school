@@ -3,13 +3,6 @@
 angular.module('finalProjectApp')
   .controller('CourseCtrl', function ($scope, $http, $state, socket) {
 
-    $scope.message = [{
-      name : 'joska',
-      gender : 'jedi'
-    },{
-      name : 'shannyi',
-      gender : 'pultos'
-    }];
 
     $http.get('/api/courses')
        .success(function(data) {
@@ -20,7 +13,7 @@ angular.module('finalProjectApp')
 
        $scope.addNewCourse = function(){
         $http.post('/api/courses', $scope.newCourse)
-        .success(function(){          
+        .success(function(){
           $scope.newCourse = {};
         });
        //socket.syncUpdates('course', $scope.courses);
