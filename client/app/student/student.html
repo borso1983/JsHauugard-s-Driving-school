@@ -3,7 +3,24 @@
     <div class="col-sm-12 ">
       <h1>Register</h1>
     </div>
+<<<<<<< HEAD
     <div ng-hide="myClass"  class="col-sm-12 ng-hide">
+=======
+    <md-list>
+  <md-subheader class="md-no-sticky">Students</md-subheader>
+  <md-list-item class="md-3-line" ng-click="goToStudent(student)" ng-repeat="student in students">
+    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+  <div class="md-list-item-text" layout="column">
+      <h4 class="media-heading">{{student.firstName }} {{student.lastName}}</h4>
+      <h6>{{student.telNum ? student.telNum : 'unknown'}}</h6>
+    </div>
+    <button class="btn btn-success" ng-click="getStudent(student)">More Details </button>
+    <button class="btn btn-danger" ng-click="deleteStudent(student)">Delete</button>
+ </md-list-item>
+</md-list>
+
+    <div class="col-sm-12">
+>>>>>>> 0692de99c3fd89ac08720c5c35c89afd72abbd09
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
@@ -99,6 +116,9 @@
           </a>
         </div>
           </form>
+
+
+
 
         </div>
     </div>

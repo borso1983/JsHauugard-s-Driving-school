@@ -3,12 +3,28 @@
 angular.module('finalProjectApp')
   .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth, socket) {
 
+<<<<<<< HEAD
     $http.get('/api/students')
        .success(function(data) {
          $scope.students = data;
          socket.syncUpdates('student', $scope.students);
          console.log($scope.students);
        });
+=======
+   StudentService.query(function(students){
+     $scope.students = students;
+     socket.syncUpdates('student', $scope.students);
+   });
+
+   /*$scope.getStudent = function(student){
+         $state.go('getStudent', {
+             id: student._id
+
+         });
+       };*/
+
+
+>>>>>>> 0692de99c3fd89ac08720c5c35c89afd72abbd09
 
     $scope.createStudent = function(){
         if ($scope.form.$valid) {
@@ -40,6 +56,16 @@ angular.module('finalProjectApp')
 
     };
 
+
+
+   $scope.deleteStudent = function(student){
+     StudentService.delete({id: student._id}, function(student){
+       console.log("Student deleted");
+
+     });
+
+   };
+
     $scope.getUserIdByEmail = function(email, callback) {
       $http.get('/api/users/getId/' + email).then(response => {
         callback(response.data);
@@ -55,4 +81,16 @@ angular.module('finalProjectApp')
    };
 
    */
+   $scope.goToStudent= function(student){
+
+     $state.go('getStudent',{
+       id:student._id
+     });
+   }
+
+
+   $scope.$on('$destroy', function(){
+    socket.unsyncUpdates('student');
+
+  });
   });
