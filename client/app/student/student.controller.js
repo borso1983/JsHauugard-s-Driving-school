@@ -1,7 +1,19 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth) {
+  .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth, socket) {
+
+   StudentService.query(function(students){
+     $scope.students = students;
+     socket.syncUpdates('student', $scope.students);
+   });
+
+   $scope.getStudent = function(student){
+         $state.go('student-details', {
+             id: student._id
+
+         });
+       }
 
     $scope.createStudent = function(){
         if ($scope.form.$valid) {
@@ -32,6 +44,19 @@ angular.module('finalProjectApp')
         }
 
     };
+
+    $scope.$on('$destroy', function(){
+     socket.unsyncUpdates('student');
+
+   });
+
+   $scope.deleteStudent = function(student){
+     StudentService.delete({id: student._id}, function(student){
+       console.log("Student deleted");
+
+     });
+
+   }
 
     $scope.getUserIdByEmail = function(email, callback) {
       $http.get('/api/users/getId/' + email).then(response => {
