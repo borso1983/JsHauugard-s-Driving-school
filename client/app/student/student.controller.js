@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth) {
+  .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth, socket) {
+
+    $http.get('/api/students')
+       .success(function(data) {
+         $scope.students = data;
+         socket.syncUpdates('student', $scope.students);
+         console.log($scope.students);
+       });
 
     $scope.createStudent = function(){
         if ($scope.form.$valid) {
