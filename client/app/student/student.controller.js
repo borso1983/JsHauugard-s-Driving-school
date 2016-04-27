@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('StudentCtrl', function ($scope, $http, StudentService, User, Auth, socket) {
+  .controller('StudentCtrl', function ($scope, $state, $http, StudentService, User, Auth, socket) {
 
-<<<<<<< HEAD
+
     $http.get('/api/students')
        .success(function(data) {
          $scope.students = data;
          socket.syncUpdates('student', $scope.students);
          console.log($scope.students);
        });
-=======
+
    StudentService.query(function(students){
      $scope.students = students;
      socket.syncUpdates('student', $scope.students);
@@ -24,7 +24,6 @@ angular.module('finalProjectApp')
        };*/
 
 
->>>>>>> 0692de99c3fd89ac08720c5c35c89afd72abbd09
 
     $scope.createStudent = function(){
         if ($scope.form.$valid) {
@@ -59,8 +58,9 @@ angular.module('finalProjectApp')
 
 
    $scope.deleteStudent = function(student){
-     StudentService.delete({id: student._id}, function(student){
-       console.log("Student deleted");
+     StudentService.delete({
+       id: student._id}, function(){
+       console.log('Student deleted');
 
      });
 
@@ -86,7 +86,7 @@ angular.module('finalProjectApp')
      $state.go('getStudent',{
        id:student._id
      });
-   }
+   };
 
 
    $scope.$on('$destroy', function(){
