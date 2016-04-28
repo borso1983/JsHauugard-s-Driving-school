@@ -5,14 +5,15 @@
     </div>
     <md-list>
   <md-subheader class="md-no-sticky">Students</md-subheader>
-  <md-list-item class="md-3-line" ng-click="goToStudent(student)" ng-repeat="student in students">
-    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+  <md-list-item class="md-3-line" ng-click="studentDetails(student)" ng-repeat="student in students">
+    
   <div class="md-list-item-text" layout="column">
       <h4 class="media-heading">{{student.firstName }} {{student.lastName}}</h4>
       <h6>{{student.telNum ? student.telNum : 'unknown'}}</h6>
     </div>
-    <button class="btn btn-success" ng-click="getStudent(student)">More Details </button>
+    <button class="btn btn-success" ng-click="studentDetails(student)">More Details </button>
     <button class="btn btn-danger" ng-click="deleteStudent(student)">Delete</button>
+    <button class="btn btn-warning" ng-click="editStudent(student)">Update</button>
  </md-list-item>
 </md-list>
 
@@ -107,9 +108,7 @@
 
         <div>
           <button class="btn btn-success" ng-click="createStudent()">Register</button>
-          <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-            Login
-          </a>
+
         </div>
           </form>
 
