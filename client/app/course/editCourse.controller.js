@@ -15,12 +15,7 @@ angular.module('finalProjectApp')
              id: course._id,
              description: course.description,
              week: course.week,
-             capacity: course.capacity,
-             date: {
-               start : course.date.start,
-               end: course.date.end
-             }
-
+             capacity: course.capacity
            });
            $state.go('course', {
 

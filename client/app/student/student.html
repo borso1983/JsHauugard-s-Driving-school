@@ -1,8 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+  <div class="row hide">
+    <div class="col-sm-12 ">
       <h1>Register</h1>
     </div>
+<<<<<<< HEAD
+    <div ng-hide="myClass"  class="col-sm-12 ng-hide">
+=======
     <md-list>
   <md-subheader class="md-no-sticky">Students</md-subheader>
   <md-list-item class="md-3-line" ng-click="studentDetails(student)" ng-repeat="student in students">
@@ -18,6 +21,7 @@
 </md-list>
 
     <div class="col-sm-12">
+>>>>>>> 0692de99c3fd89ac08720c5c35c89afd72abbd09
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
@@ -116,9 +120,8 @@
 
 
         </div>
-
-
     </div>
+    
   </div>
   <hr>
 </div>

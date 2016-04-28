@@ -50,8 +50,9 @@ angular.module('finalProjectApp')
 
 
    $scope.deleteStudent = function(student){
-     StudentService.delete({id: student._id}, function(student){
-       console.log("Student deleted");
+     StudentService.delete({
+       id: student._id}, function(){
+       console.log('Student deleted');
      });
 
    };
@@ -76,6 +77,7 @@ angular.module('finalProjectApp')
        id:student._id
      });
    };
+
 
    $scope.editStudent= function(student){
       $state.go('editStudent',{
