@@ -17,7 +17,11 @@ var CourseSchema = new mongoose.Schema({
   students: [{
      type: mongoose.Schema.ObjectId,
       ref: 'Student'
-  }]
+  }],
+  page:{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Page'
+  }
 });
 
 export default mongoose.model('Course', CourseSchema);

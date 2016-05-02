@@ -61,7 +61,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Courses
 export function index(req, res) {
-  Course.findAsync()
+  Course.find().populate('page').execAsync()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

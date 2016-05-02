@@ -1,0 +1,53 @@
+<div>This is the editCourse view.</div>
+<h1>{{course.description}}</h1>
+
+
+  <md-content layout-padding>
+    <div>
+      <form name="courseForm">
+        <div layout-gt-xs="row">
+          <label> Start Date </label>
+          <md-datepicker ng-model="course.date.start" md-placeholder="Enter date">
+          </md-datepicker>
+          <label>End Date</label>
+          <md-datepicker ng-model="course.date.end" md-placeholder="Enter date">
+          </md-datepicker>
+        </div>
+
+        <div layout-gt-sm="row">
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Description</label>
+            <input ng-model="course.description" md-maxlength="25">
+            <div ng-messages="userForm.$error" role="alert" multiple>
+              <div ng-message="md-maxlength" class="my-message">
+                That would be a little bit too much...
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Week Nr.:</label>
+            <input  ng-model="course.week" placeholder="123" required="requireMessage"  >
+            <div ng-messages="userForm.$error" role="alert" multiple>
+              <div ng-message="requireMessage" class="my-message">
+                You need to add the week number...
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Capacity</label>
+            <input  ng-model="course.capacity" placeholder="123" >
+            <div ng-messages="userForm.$error" role="alert" multiple>
+              <div ng-message="md-maxlength" class="my-message">
+                That would be a little bit too much...
+              </div>
+            </div>
+          </md-input-container>
+
+        </div>
+
+      </form>
+      <button class="btn btn-success" ng-click="updateCourse(course)">Update</button>
+      <button class="btn btn-danger" ng-click="undoCourseEdit()">Cancel</button>
+    </div>
+  </md-content>

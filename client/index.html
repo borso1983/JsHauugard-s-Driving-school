@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -15,6 +15,7 @@
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css" />
       <!-- endbower -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- endbuild -->
@@ -22,10 +23,17 @@
       <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
       <link rel="stylesheet" href="app/admin/admin.css">
+      <link rel="stylesheet" href="app/administration/administration-overview.css">
+      <link rel="stylesheet" href="app/administration/administration.css">
+      <link rel="stylesheet" href="app/administration/course/course-admin.css">
+      <link rel="stylesheet" href="app/administration/course/edit-course.css">
+      <link rel="stylesheet" href="app/administration/page-edit.css">
+      <link rel="stylesheet" href="app/administration/page-edit.css/page-admin.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/course/course.css">
-      <link rel="stylesheet" href="app/course/editCourse.css">
+      <link rel="stylesheet" href="app/feedback/feedback.css">
       <link rel="stylesheet" href="app/main/main.css">
+      <link rel="stylesheet" href="app/page/page.css">
       <link rel="stylesheet" href="app/student/student.css">
       <link rel="stylesheet" href="components/footer/footer.css">
       <link rel="stylesheet" href="components/modal/modal.css">
@@ -73,6 +81,11 @@
       <script src="bower_components/angular-aria/angular-aria.js"></script>
       <script src="bower_components/angular-messages/angular-messages.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/summernote/dist/summernote.js"></script>
+      <script src="bower_components/angular-summernote/dist/angular-summernote.js"></script>
+      <script src="bower_components/trumbowyg/dist/trumbowyg.js"></script>
+      <script type="text/javascript" src="bower_components/tinymce-dist/tinymce.js"></script>
+      <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -82,20 +95,29 @@
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/student/getStudent.js"></script>
+      <script src="app/feedback/feedback.js"></script>
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
+      <script src="app/administration/administration-overview.controller.js"></script>
+      <script src="app/administration/administration.controller.js"></script>
+      <script src="app/administration/administration.js"></script>
+      <script src="app/administration/course/course-admin.controller.js"></script>
+      <script src="app/administration/course/course-admin.service.js"></script>
+      <script src="app/administration/course/edit-course.controller.js"></script>
+      <script src="app/administration/page/page-admin.controller.js"></script>
+      <script src="app/administration/page/page-admin.service.js"></script>
+      <script src="app/administration/page/page-edit.controller.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/course/course.controller.js"></script>
       <script src="app/course/course.js"></script>
       <script src="app/course/course.service.js"></script>
-      <script src="app/course/editCourse.controller.js"></script>
+      <script src="app/feedback/feedback.controller.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/myDirective/myDirective.directive.js"></script>
-      <script src="app/student/getStudent.controller.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/page/page.controller.js"></script>
+      <script src="app/page/page.js"></script>
       <script src="app/student/student.controller.js"></script>
       <script src="app/student/student.js"></script>
       <script src="app/student/student.service.js"></script>

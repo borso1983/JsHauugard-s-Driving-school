@@ -1,0 +1,50 @@
+<div class="container">
+
+  <form class="row">
+
+    <div ng-hide="showAdd">
+
+      <a class="btn btn-primary" href="#" ng-click="showAdd = !showAdd" >Create New</a>
+
+    </div>
+    <div  ng-show="showAdd">
+      <div class="form-group col-md-3">
+        <label for="1">Description: </label>
+        <input id="1" type="text" ng-model="newCourse.description">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="2">Week Nr.: </label>
+        <input id="2" type="text" ng-model="newCourse.week">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="3">Capacity: </label>
+        <input id="3" type="text" ng-model="newCourse.capacity">
+      </div>
+
+      <div class="col-md-3">
+        <button class="btn btn-primary"  ng-click="addNewCourse()">Add</button>
+          <button class="btn btn-danger"  ng-click="showAdd = !showAdd">Cancel</button>
+      </div>
+    </div>
+
+  </form>
+
+  <hr class="hr" />
+  <md-list-item class="md-3-line row" ng-repeat="course in courses" ng-click="null">
+    <!-- <img ng-src="{{course.face}}?{{$index}}" class="md-avatar" alt="{{course.description}" /> -->
+    <!-- <div class="md-list-item-text row" layout="column">
+         </div> -->
+    <div class="col-md-10">
+      <a href="#" tooltip="{{course.occupied}}/{{course.capacity}}">
+             {{course.description}}
+           </a>
+      <span style="color:grey;">
+               &nbsp; {{course.occupied}} /  {{course.capacity}}
+            </span>
+    </div>
+    <div class="col-md-2">
+      <button style="margint-rigth:0;" class="btn btn-success" ng-click="editCourse(course)">Edit</button>
+      <button style="margint-rigth:0;" class="btn btn-danger" ng-click="deleteCourse(course)">Delete</button>
+    </div>
+  </md-list-item>
+</div>

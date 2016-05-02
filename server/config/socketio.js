@@ -23,6 +23,7 @@ function onConnect(socket) {
   require('../api/course/course.socket').register(socket);
 
 
+
 }
 
 export default function(socketio) {

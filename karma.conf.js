@@ -26,7 +26,12 @@ module.exports = function(config) {
       'client/bower_components/angular-aria/angular-aria.js',
       'client/bower_components/angular-messages/angular-messages.js',
       'client/bower_components/angular-material/angular-material.js',
+      'client/bower_components/summernote/dist/summernote.js',
+      'client/bower_components/angular-summernote/dist/angular-summernote.js',
+      'client/bower_components/trumbowyg/dist/trumbowyg.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
+      'client/bower_components/tinymce-dist/tinymce.js',
+      'client/bower_components/angular-ui-tinymce/src/tinymce.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',
       'client/app/app.js',

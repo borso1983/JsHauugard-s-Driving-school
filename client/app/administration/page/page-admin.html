@@ -1,0 +1,50 @@
+<div class="container">
+
+  <form class="row">
+
+    <div ng-hide="showAdd">
+
+      <a class="btn btn-primary" href="#" ng-click="showAdd = !showAdd" >Create New</a>
+
+    </div>
+    <div  ng-show="showAdd">
+      <div class="form-group col-md-3">
+        <label for="1">Name: </label>
+        <input id="1" type="text" ng-model="newPage.name">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="2">Title: </label>
+        <input id="2" type="text" ng-model="newPage.title">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="3">Text: </label>
+        <input id="3" type="text" ng-model="newPage.Text">
+      </div>
+
+      <div class="col-md-3">
+        <button class="btn btn-primary"  ng-click="addNewPage()">Add</button>
+          <button class="btn btn-danger"  ng-click="showAdd = !showAdd">Cancel</button>
+      </div>
+    </div>
+
+  </form>
+
+  <hr class="hr" />
+  <md-list-item class="md-3-line row" ng-repeat="page in pages" ng-click="null">
+    <!-- <img ng-src="{{course.face}}?{{$index}}" class="md-avatar" alt="{{course.description}" /> -->
+    <!-- <div class="md-list-item-text row" layout="column">
+         </div> -->
+    <div class="col-md-10">
+      <a href="#" tooltip="{{page.name}}">
+             {{page.name}}
+           </a>
+      <span style="color:grey;">
+               &nbsp; {{page.title}}
+            </span>
+    </div>
+    <div class="col-md-2">
+      <button style="margint-rigth:0;" class="btn btn-success" ng-click="editPage(page)">Edit</button>
+      <button style="margint-rigth:0;" class="btn btn-danger" ng-click="deletePage(page)">Delete</button>
+    </div>
+  </md-list-item>
+</div>
