@@ -9,15 +9,15 @@ angular.module('finalProjectApp')
 
 
 
-    //  $scope.updatePage = function(page) {
-    //        PageAdminService.update({
-    //          id: page._id,
-     //
-    //        });
-    //        $state.go('administration.page', {
-     //
-    //        });
-    //  };
+     $scope.updatePage = function(page) {
+           PageAdminService.update({
+             id: page._id,
+
+           });
+           $state.go('administration.page', {
+
+           });
+     };
 
      $scope.undoPageEdit = function() {
        $state.go('administration.page', {
