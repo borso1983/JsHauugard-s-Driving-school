@@ -21,13 +21,13 @@ angular.module('finalProjectApp')
         streetNumber : student.address.streetNumber
 
       });
-      $state.go('student', {
+      $state.go('administration.student', {
 
       });
     };
 
     $scope.undoStudentEdit = function(){
-      $state.go('student',{
+      $state.go('administration.student',{
 
       });
     };

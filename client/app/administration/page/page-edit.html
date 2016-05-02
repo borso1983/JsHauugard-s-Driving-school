@@ -9,14 +9,7 @@
    <button ng-click="getContent()">Get content</button>
    <button ng-click="setContent()">Set content</button>
  </form> -->
- <div id="summernote" ng-model="page.text"></div>
+<summernote ng-model="page.title"></summernote>
 
 
 </div>
-<div ng-bind="page.text"></div>
-<script>
-$(document).ready(function() {
-  $('#summernote').summernote();
-});
-
-</script>

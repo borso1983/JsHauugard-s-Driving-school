@@ -38,6 +38,18 @@ angular.module('finalProjectApp')
              url: '/course/:id',
               templateUrl: 'app/administration/course/edit-course.html',
               controller: 'EditCourseCtrl'
+      })
+
+      .state('administration.student', {
+             url: '/student',
+              templateUrl: 'app/administration/student/student-admin.html',
+              controller: 'StudentAdminCtrl'
+      })
+
+      .state('administration.student-edit', {
+             url: '/student/:id',
+              templateUrl: 'app/administration/student/edit-student.html',
+              controller: 'EditStudentCtrl'
       });
 
 

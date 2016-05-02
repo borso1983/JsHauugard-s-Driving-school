@@ -5,6 +5,7 @@ angular.module('finalProjectApp')
 
     PageAdminService.get({id:$stateParams.id}, function(page) {
       $scope.page =  page;
+      console.log(page);
     });
 
 
