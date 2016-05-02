@@ -1,21 +1,13 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('StudentCtrl', function ($scope, $state, $http, StudentService, User, Auth, socket) {
-
-
-    $http.get('/api/students')
-       .success(function(data) {
-         $scope.students = data;
-         socket.syncUpdates('student', $scope.students);
-         console.log($scope.students);
-       });
-
-   StudentService.query(function(students){
-     $scope.students = students;
-     socket.syncUpdates('student', $scope.students);
-   });
-
+  .controller('StudentCtrl', function ($scope, $http, StudentService, User, $state, Auth, socket) {
+      $http.get('/api/students')
+          .success(function(data) {
+            $scope.students = data;
+            socket.syncUpdates('student', $scope.students);
+            console.log($scope.students);
+          });
    /*$scope.getStudent = function(student){
          $state.go('getStudent', {
              id: student._id
@@ -61,16 +53,17 @@ angular.module('finalProjectApp')
      StudentService.delete({
        id: student._id}, function(){
        console.log('Student deleted');
-
      });
 
    };
 
+
     $scope.getUserIdByEmail = function(email, callback) {
       $http.get('/api/users/getId/' + email).then(response => {
-        callback(response.data);
+        callback(response.data);//response data only contains the user._id
       });
     };
+
     /*
     $scope.createStudent = function(){
      StudentService.save($scope.newStudent, function(student){
@@ -81,11 +74,18 @@ angular.module('finalProjectApp')
    };
 
    */
-   $scope.goToStudent= function(student){
+   $scope.studentDetails= function(student){
+     $state.go('studentDetails',{
 
-     $state.go('getStudent',{
-       id:student._id
+       id: student._id
      });
+   };
+
+
+   $scope.editStudent= function(student){
+      $state.go('editStudent',{
+        id: student._id
+      });
    };
 
 
