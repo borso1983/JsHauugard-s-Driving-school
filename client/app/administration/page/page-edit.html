@@ -1,0 +1,13 @@
+<div class="container">
+<h1>Pages <small>Edit your page informations</small></h1>
+
+
+
+
+<form method="post" >
+   <textarea ui-tinymce="tinymceOptions" ng-model="page.text" ></textarea>
+   <button ng-click="getContent()">Get content</button>
+   <button ng-click="setContent()">Set content</button>
+ </form>
+</div>
+<input ng-model="page.text"></input>

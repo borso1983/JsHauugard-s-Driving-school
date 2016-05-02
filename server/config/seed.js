@@ -7,6 +7,7 @@
 import User from '../api/user/user.model';
 import Course from '../api/course/course.model';
 import Student from '../api/student/student.model';
+import Page from '../api/page/page.model';
 
 
 
@@ -114,6 +115,7 @@ Course.find({}).removeAsync()
         week: 25,
         capacity: 20,
         occupied: 16,
+        page: '119e69cc1ab998358d376688',
         description : 'Driving Lessons',
         students: ['569e69cc1ab998358d376677', '569e69cc1ab998358d37667a'
       ]
@@ -122,3 +124,21 @@ Course.find({}).removeAsync()
         console.log('finished populating courses');
       });
   });
+
+  Page.find({}).removeAsync()
+    .then(() => {
+      Page.createAsync({
+        _id: '119e69cc1ab998358d376688',
+        name: 'coursePage',
+        title: 'Here you can find the available courses',
+        text: "<h1>This is a test text just for set up something</h1>",
+        meta: {
+          title: "String",
+          description: "String"
+        } ,
+        active: true
+      })
+      .then(() => {
+          console.log('finished populating page');
+        });
+    });
