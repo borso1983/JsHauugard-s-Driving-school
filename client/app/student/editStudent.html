@@ -1,14 +1,14 @@
 
-<navbar></navbar>
 <div class= "container">
   <div class = "row">
     <div class ="col-sm-12">
       <h1>Update </h1>
       <h1>{{student.firstName }} {{student.lastName}}</h1>
 
+      <!--
       <div class = "col-sm-12">
         <md-input-container class="md-block" flex-gt-sm>
-          <label>some name Name</label>
+          <label>User Name</label>
           <input ng-model= "user.name "  readonly = "readonly">
         </div>
 
@@ -17,6 +17,7 @@
            <label>Email </label>
            <input ng-model= "user.email "  readonly = "readonly">
         </div>
+       //-->
 
         <div class = "col-sm-12">
            <md-input-container class="md-block" >
@@ -60,10 +61,9 @@
             <input ng-model= "student.address.streetNumber">
         </div>
 
-        <button class="btn btn-success" ng-click="editStudent()">Save</button>
-        <button class="btn btn-warning" ng-click="cancelStudent()">Cancel</button>
+        <button class="btn btn-success" ng-click="updateStudent(student)">Update</button>
+        <button class="btn btn-danger" ng-click="undoStudentEdit()">Cancel</button>
 
     </div>
   </div>
 </div>
-<footer></footer>

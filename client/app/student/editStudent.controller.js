@@ -8,8 +8,10 @@ angular.module('finalProjectApp')
       $scope.student= student;
 
     });
-    $scope.editStudent = function(student){
-        StudentService.edit({
+
+    $scope.updateStudent = function(student){
+        StudentService.update({
+        id:student._id,
         firstName : student.firstName,
         lastName : student.lastName,
         telNum : student.telNum,
@@ -24,7 +26,9 @@ angular.module('finalProjectApp')
       });
     };
 
-    $scope.undoUpdateStudent = function(){
-      $scope.editStudent = undefined;
+    $scope.undoStudentEdit = function(){
+      $scope.go('student',{
+
+      });
     };
 });
