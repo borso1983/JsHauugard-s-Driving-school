@@ -4,10 +4,19 @@
 
 
 
-<form method="post" >
-   <textarea ui-tinymce="tinymceOptions" ng-model="page.text" ></textarea>
+<!-- <form method="post" >
+   <textarea  ui-tinymce="tinymceOptions" ng-model="page.text" ></textarea>
    <button ng-click="getContent()">Get content</button>
    <button ng-click="setContent()">Set content</button>
- </form>
+ </form> -->
+ <div id="summernote" ng-model="page.text"></div>
+
+
 </div>
-<input ng-model="page.text"></input>
+<div ng-bind="page.text"></div>
+<script>
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+
+</script>

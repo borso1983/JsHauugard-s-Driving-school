@@ -14,10 +14,11 @@
     'ngMaterial',
     'ngMessages',
     'ngAnimate',
-    'ui.tinymce'
+    'ui.tinymce',
+    'summernote'
   ])
 
-  
+
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 

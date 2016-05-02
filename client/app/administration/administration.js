@@ -22,9 +22,10 @@ angular.module('finalProjectApp')
               controller: 'PageAdminCtrl'
       })
       .state('administration.page-edit', {
-             url: '/page',
+             url: '/page/:id',
               templateUrl: 'app/administration/page/page-edit.html',
               controller: 'EditPageCtrl'
+
       })
      //Course list view
       .state('administration.course', {
@@ -34,7 +35,7 @@ angular.module('finalProjectApp')
       })
       //course edit view
       .state('administration.course-edit', {
-             url: '/:id',
+             url: '/course/:id',
               templateUrl: 'app/administration/course/edit-course.html',
               controller: 'EditCourseCtrl'
       });
