@@ -16,7 +16,7 @@ var CourseSchema = new mongoose.Schema({
   description : String,
   students: [{
      type: mongoose.Schema.ObjectId,
-      ref: 'Student'
+      ref: 'User'
   }],
   page:{
     type: mongoose.Schema.ObjectId,

@@ -16,7 +16,17 @@ var UserSchema = new Schema({
   },
   password: String,
   provider: String,
-  salt: String
+  salt: String,
+  firstName: String,
+  lastName: String,
+  telNum : String,
+
+  address: {
+    city: String,
+    zipCode : Number,
+    street : String,
+    streetNumber : Number
+  }
 });
 
 /**
