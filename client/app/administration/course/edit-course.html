@@ -1,53 +1,93 @@
-<div>This is the editCourse view.</div>
-<h1>{{course.description}}</h1>
 
 
-  <md-content layout-padding>
-    <div>
-      <form name="courseForm">
-        <div layout-gt-xs="row">
-          <label> Start Date </label>
-          <md-datepicker ng-model="course.date.start" md-placeholder="Enter date">
-          </md-datepicker>
-          <label>End Date</label>
-          <md-datepicker ng-model="course.date.end" md-placeholder="Enter date">
-          </md-datepicker>
-        </div>
+<div class="container" >
 
-        <div layout-gt-sm="row">
+  <h1 class="row" >  <p style="padding:5px;" class="bg-primary">{{course.description}} - Edit</p></h1>
+  <div class="row">
+    <md-content layout-padding>
+      <div>
+        <form name="courseForm">
+          <div layout-gt-xs="row">
+            <label> Start Date </label>
+            <md-datepicker ng-model="course.date.start" md-placeholder="Enter date">
+            </md-datepicker>
+            <label>End Date</label>
+            <md-datepicker ng-model="course.date.end" md-placeholder="Enter date">
+            </md-datepicker>
+          </div>
 
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Description</label>
-            <input ng-model="course.description" md-maxlength="25">
-            <div ng-messages="userForm.$error" role="alert" multiple>
-              <div ng-message="md-maxlength" class="my-message">
-                That would be a little bit too much...
+          <div layout-gt-sm="row">
+
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Description</label>
+              <input ng-model="course.description" md-maxlength="25">
+              <div ng-messages="userForm.$error" role="alert" multiple>
+                <div ng-message="md-maxlength" class="my-message">
+                  That would be a little bit too much...
+                </div>
               </div>
-            </div>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Week Nr.:</label>
-            <input  ng-model="course.week" placeholder="123" required="requireMessage"  >
-            <div ng-messages="userForm.$error" role="alert" multiple>
-              <div ng-message="requireMessage" class="my-message">
-                You need to add the week number...
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Week Nr.:</label>
+              <input ng-model="course.week" placeholder="123" required="requireMessage">
+              <div ng-messages="userForm.$error" role="alert" multiple>
+                <div ng-message="requireMessage" class="my-message">
+                  You need to add the week number...
+                </div>
               </div>
-            </div>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Capacity</label>
-            <input  ng-model="course.capacity" placeholder="123" >
-            <div ng-messages="userForm.$error" role="alert" multiple>
-              <div ng-message="md-maxlength" class="my-message">
-                That would be a little bit too much...
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Capacity</label>
+              <input ng-model="course.capacity" placeholder="123">
+              <div ng-messages="userForm.$error" role="alert" multiple>
+                <div ng-message="md-maxlength" class="my-message">
+                  That would be a little bit too much...
+                </div>
               </div>
-            </div>
-          </md-input-container>
+            </md-input-container>
 
-        </div>
+          </div>
 
-      </form>
-      <button class="btn btn-success" ng-click="updateCourse(course)">Update</button>
-      <button class="btn btn-danger" ng-click="undoCourseEdit()">Cancel</button>
+        </form>
+        <button class="btn btn-success" ng-click="updateCourse(course)">Update</button>
+        <button class="btn btn-danger" ng-click="undoCourseEdit()">Cancel</button>
+      </div>
+    </md-content>
+  </div>
+  <h4 class="row"><p style="padding:5px;" class="bg-primary">Page - Edit</p></h4>
+  <div class="row">
+    <div class="col-md-7 md-whiteframe-1dp" style="background:#ffffff;">
+      <md-subheader class="md-primary"><strong>Page Preview</strong></md-subheader>
+      <div class=" pagePrev" ng-repeat="course in courses">
+        <p ng-bind-html="course.page.text"></p>
+      </div>
     </div>
-  </md-content>
+    <br class="visible-xs visile-md" />
+    <div class="col-md-5">
+      <md-content class="contact-list panel panel-default">
+
+        <md-content style="margin-left:10px; margin-top:15px;">
+          <md-checkbox class="md-primary" aria-label="Checkbox 1" ng-click="hideEmail = !hideEmail">
+            Show Title
+          </md-checkbox>
+          <!-- <div id="toastParent"></div> -->
+          <!-- <md-button class="md-raised md-primary btnSave" ng-click="savePage(page)">Save</md-button> -->
+        </md-content>
+
+        <div class="panel-heading">
+          <input class="form-control" ng-model="search.name" placeholder="Search Name.." />
+        </div>
+
+        <div class="panel-body" id="toastParent">
+          <div class="ui-list-view-bordered" ui-list-view="page in pages | filter:search">
+            <a href="#" style="text-decoration: none!important;" ng-click="getPage(page)">
+              <p class="name" style="padding-left:10px;"><strong> {{ page.name }}</strong></p>
+              <div style="padding-left:10px;" class="email text-muted" ng-if="!hideEmail"> {{ page.title }}</div>
+            </a>
+          </div>
+        </div>
+
+      </md-content>
+    </div>
+
+  </div>

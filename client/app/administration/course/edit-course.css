@@ -1,0 +1,9 @@
+.pagePrev{
+  background:#ffffff;
+  max-height: 410px;
+  overflow-y: auto;
+}
+.btnSave{
+
+  margin-left: 20px;
+}
