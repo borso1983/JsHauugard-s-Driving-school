@@ -8,11 +8,10 @@ angular.module('finalProjectApp')
       console.log(page);
     });
 
-
-
      $scope.updatePage = function(page) {
            PageAdminService.update({
              id: page._id,
+             text: page.text
 
            });
            $state.go('administration.page', {
@@ -25,6 +24,7 @@ angular.module('finalProjectApp')
 
        });
      };
+
 
 
 });

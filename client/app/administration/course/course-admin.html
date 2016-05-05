@@ -31,15 +31,13 @@
 
   <hr class="hr" />
   <md-list-item class="md-3-line row" ng-repeat="course in courses" ng-click="null">
-    <!-- <img ng-src="{{course.face}}?{{$index}}" class="md-avatar" alt="{{course.description}" /> -->
-    <!-- <div class="md-list-item-text row" layout="column">
-         </div> -->
+
     <div class="col-md-10">
       <a href="#" tooltip="{{course.occupied}}/{{course.capacity}}">
              {{course.description}}
            </a>
       <span style="color:grey;">
-               &nbsp; {{course.occupied}} /  {{course.capacity}}
+               &nbsp; {{course.occupied}} / {{course.capacity}}
             </span>
     </div>
     <div class="col-md-2">

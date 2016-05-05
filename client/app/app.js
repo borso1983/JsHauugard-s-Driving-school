@@ -14,8 +14,9 @@
     'ngMaterial',
     'ngMessages',
     'ngAnimate',
-    'ui.tinymce',
-    'summernote'
+    'summernote',
+    'mwl.calendar',
+    'ui-listView'
   ])
 
 

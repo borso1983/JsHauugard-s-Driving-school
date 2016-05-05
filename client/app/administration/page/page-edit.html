@@ -9,7 +9,10 @@
    <button ng-click="getContent()">Get content</button>
    <button ng-click="setContent()">Set content</button>
  </form> -->
-<summernote ng-model="page.title"></summernote>
+
+  <br />
+<summernote ng-model="page.text"></summernote>
+ <button class="btn btn-default" ng-click="updatePage(page)">Save</button>
 
 
 </div>

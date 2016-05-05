@@ -4,6 +4,7 @@
   "main": "server/app.js",
   "dependencies": {
     "angular-material": "^1.0.7",
+    "angular-material-calendar": "^0.2.14",
     "babel-runtime": "^5.8.20",
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
