@@ -50,7 +50,12 @@ angular.module('finalProjectApp')
              url: '/student/:id',
               templateUrl: 'app/administration/student/edit-student.html',
               controller: 'EditStudentCtrl'
-      });
+      })
 
+      .state('administration.user', {
+             url: '/administration/user',
+              templateUrl: 'app/administration/user-admin.html',
+              controller: 'UserAdminCtrl'
+      });
 
   });
