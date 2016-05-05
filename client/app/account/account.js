@@ -23,8 +23,17 @@ angular.module('finalProjectApp')
       })
       .state('signup', {
         url: '/signup',
+        params: {
+            id: null
+        },
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupController',
+        controllerAs: 'vm'
+      })
+      .state('edit', {
+        url: '/edit',
+        templateUrl: 'app/account/edit/edit.html',
+        controller: 'EditController',
         controllerAs: 'vm'
       })
       .state('settings', {

@@ -11,7 +11,11 @@ angular.module('finalProjectApp')
          console.log($scope.courses);
        });
 
-
+       $scope.goToSignUp= function(course) {
+       $state.go('signup', {
+       id: course._id
+      });
+   };
 
       //  $scope.addNewCourse = function(){
       //   $http.post('/api/courses', $scope.newCourse)

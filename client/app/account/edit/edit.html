@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Sign up</h1>
+      <h1>My Profile </h1>
     </div>
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+      <form class="form" name="form" ng-submit="vm.edit(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
@@ -35,34 +35,6 @@
           </p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
-                                            'has-error': form.password.$invalid && vm.submitted }">
-          <label>Password</label>
-
-          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
-                 ng-minlength="3"
-                 required
-                 mongoose-error/>
-          <p class="help-block"
-             ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
-            Password must be at least 3 characters.
-          </p>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ vm.errors.password }}
-          </p>
-        </div>
-
-        <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
-                                            'has-error': form.confirmPassword.$invalid && vm.submitted }">
-          <label>Confirm Password</label>
-          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
-                 match="vm.user.password"
-                 ng-minlength="3" required/>
-          <p class="help-block"
-             ng-show="form.confirmPassword.$error.match && vm.submitted">
-            Passwords must match.
-          </p>
-        </div>
         <div class="form-group">
           <label for="userFirstName">First Name: </label>
           <input id="userFirstName" type="text" class= "form-control" ng-model="vm.user.firstName">
@@ -75,19 +47,31 @@
           <label for="userTelNum">Phone Number: </label>
           <input id="userTelNum" type="text" class= "form-control" ng-model="vm.user.telNum">
         </div>
+        <div class="form-group">
+          <label for="userCity">City: </label>
+          <input id="userCity" type="text" class= "form-control"  ng-model="vm.user.address.city">
+        </div>
+        <div class="form-group">
+          <label for="userZipcode">zipCode: </label>
+          <input id="userZipcode" type="number" class= "form-control"  ng-model="vm.user.address.zipCode">
+        </div>
+        <div class="form-group">
+          <label for="userStreet">Street Name: </label>
+          <input id="userStreet" type="text" class= "form-control"  ng-model="vm.user.address.street">
+        </div>
+        <div class="form-group">
+          <label for="userStreetNumber">Street Number: </label>
+          <input id="userStreetNumber" type="text" class= "form-control"  ng-model="vm.user.address.streetNumber">
+        </div>
 
-        <div>
-          <div>
-            <button class="btn btn-success">Sign Up</button>
-            <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-              Login  </a>
-          </div>
+        <button class="btn btn-success" ng-click="updateUser(user)">Update</button>
+        <button class="btn btn-danger" ng-click="undoUserEdit()">Cancel</button>
+        </div>
 
 
         </div>
 
       </form>
-      </div>
     </div>
   </div>
   <hr>

@@ -5,9 +5,14 @@ class SignupController {
   user = {};
   errors = {};
   submitted = false;
+  course = null;
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state, $stateParams, CourseService) {
+    var that = this;
+    CourseService.get({id:$stateParams.id}, function(course){
+        that.course= course;
+    });
     this.Auth = Auth;
     this.$state = $state;
   }
@@ -19,7 +24,13 @@ class SignupController {
       this.Auth.createUser({
         name: this.user.name,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        telNum: this.user.stelNum,
+        course : this.course._id
+      //  role: this.user.student
+
       })
       .then(() => {
         // Account created, redirect to home

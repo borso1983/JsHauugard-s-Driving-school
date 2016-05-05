@@ -76,7 +76,6 @@ angular.module('finalProjectApp')
    */
    $scope.studentDetails= function(student){
      $state.go('studentDetails',{
-
        id: student._id
      });
    };
