@@ -7,34 +7,54 @@ class SignupController {
   submitted = false;
   course = null;
   //end-non-standard
-
-  constructor(Auth, $state, $stateParams, CourseService) {
+  constructor(Auth, $state, $stateParams, CourseService,  $http, $scope) {
     var that = this;
     CourseService.get({id:$stateParams.id}, function(course){
         that.course= course;
     });
     this.Auth = Auth;
     this.$state = $state;
+    this.$http = $http;
+    this.$scope = $scope;
   }
 
+  getUserIdByEmail(email, callback) {
+    this.$http.get('/api/users/getId/' + email).then(response => {
+      callback(response.data);//response data only contains the user._id
+    });
+  }
+
+  assignStudentToCourse(courseId, userId, callback){
+    this.$http.put('/api/courses/assign/' + courseId + '/' + userId).then(response => {
+      callback(response.data);//response data only contains the user._id
+    });
+  }
+
+
   register(form) {
+    var that = this;
     this.submitted = true;
-
     if (form.$valid) {
-      this.Auth.createUser({
-        name: this.user.name,
-        email: this.user.email,
-        password: this.user.password,
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        telNum: this.user.stelNum,
-        course : this.course._id
-      //  role: this.user.student
 
+      this.Auth.createUser({
+              name: this.user.name,
+              email: this.user.email,
+              password: this.user.password,
+              firstName: this.user.firstName,
+              lastName: this.user.lastName,
+              telNum: this.user.telNum,
+              course : this.course._id
+            //  role: this.user.student
       })
       .then(() => {
-        // Account created, redirect to home
-        this.$state.go('main');
+
+        that.getUserIdByEmail(that.user.email, function(id) {
+          console.log(id);
+          that.assignStudentToCourse(that.course._id, id, function(xxx){
+            console.log(xxx);
+          });
+        });
+
       })
       .catch(err => {
         err = err.data;
@@ -46,8 +66,10 @@ class SignupController {
           this.errors[field] = error.message;
         });
       });
-    }
-  }
+
+    } // if (form.$valid)
+  } // register form
+
 }
 
 angular.module('finalProjectApp')

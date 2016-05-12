@@ -92,6 +92,31 @@ export function update(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+//assign student to the course
+export function addStudentToList(req, res, next) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  //find a course by ID
+  Course.findByIdAsync(req.params.courseId)
+  .then(course => {
+    if (!course) {
+      return res.status(401).end();
+    }
+    //adding a student into the student array
+    course.students.push(req.params.userId);
+    //decrease course occupied  by one
+    course.occupied++;
+    //save and return
+    course.saveAsync()
+      .spread(updated => {
+        return res.json(updated);
+      });
+
+  })
+  .catch(err => next(err));
+}
+
 
 // Deletes a Course from the DB
 export function destroy(req, res) {
