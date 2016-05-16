@@ -3,7 +3,7 @@
 
 angular.module('finalProjectApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin']})
+.constant('appConfig', {userRoles:['guest','user','admin','superAdmin','student','teacher']})
 
 ;
 })(angular);

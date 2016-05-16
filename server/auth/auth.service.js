@@ -50,12 +50,21 @@ export function hasRole(roleRequired) {
   return compose()
     .use(isAuthenticated())
     .use(function meetsRequirements(req, res, next) {
-      if (config.userRoles.indexOf(req.user.role) >=
-          config.userRoles.indexOf(roleRequired)) {
+      var userIsInRole;
+      if (Array.isArray(req.user.role)) {
+        req.user.role.forEach(function(userRole) {
+          if (config.userRoles.indexOf(userRole) >= config.userRoles.indexOf(roleRequired)) {
+            userIsInRole = true;
+          }
+        });
+      }
+
+      if (userIsInRole) {
         next();
       } else {
         res.status(403).send('Forbidden');
       }
+
     });
 }
 
