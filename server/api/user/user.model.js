@@ -26,6 +26,10 @@ var UserSchema = new Schema({
     zipCode : Number,
     street : String,
     streetNumber : Number
+  },
+  course :{
+    type: mongoose.Schema.ObjectId,
+    ref : 'Course'
   }
 });
 
