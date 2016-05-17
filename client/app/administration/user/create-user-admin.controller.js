@@ -1,6 +1,6 @@
 'use strict';
 
-class SignupController {
+class CreateUserAdminController {
   //start-non-standard
   user = {};
   errors = {};
@@ -8,16 +8,12 @@ class SignupController {
   course = null;
   //end-non-standard
   constructor(Auth, $state, $stateParams, CourseService,  $http, $scope) {
-    var that = this;
-    CourseService.get({id:$stateParams.id}, function(course){
-        that.course= course;
-    });
     this.Auth = Auth;
     this.$state = $state;
     this.$http = $http;
     this.$scope = $scope;
   }
-
+/*
   getUserIdByEmail(email, callback) {
     this.$http.get('/api/users/getId/' + email).then(response => {
       callback(response.data);//response data only contains the user._id
@@ -29,7 +25,7 @@ class SignupController {
       callback(response.data);//response data only contains the user._id
     });
   }
-
+*/
 
   register(form) {
     var that = this;
@@ -50,14 +46,12 @@ class SignupController {
 
         that.getUserIdByEmail(that.user.email, function(id) {
           console.log(id);
-          that.assignStudentToCourse(that.course._id, id, function(){
-              that.$state.go('course');
+          that.assignStudentToCourse(that.course._id, id, function(xxx){
+            console.log(xxx);
           });
         });
 
       })
-
-
       .catch(err => {
         err = err.data;
         this.errors = {};
@@ -75,4 +69,4 @@ class SignupController {
 }
 
 angular.module('finalProjectApp')
-  .controller('SignupController', SignupController);
+  .controller('CreateUserAdminCtrl', CreateUserAdminController);

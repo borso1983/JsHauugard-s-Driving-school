@@ -7,6 +7,10 @@ angular.module('finalProjectApp')
 
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.currentUser = Auth.getCurrentUser();
+    if($scope.currentUser.address === undefined) {
+      $scope.currentUser.address = {};
+    }
+
 
     $scope.updateUser = function(currentUser){
       $scope.submitted = true;
@@ -22,7 +26,9 @@ angular.module('finalProjectApp')
            zipCode : currentUser.address.zipCode,
            street : currentUser.address.street,
            streetNumber : currentUser.address.streetNumber
-
+         }).$promise
+         .then(() => {
+           location.reload();
          });
        }
      };

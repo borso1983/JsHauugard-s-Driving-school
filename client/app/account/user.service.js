@@ -2,7 +2,7 @@
 
 angular.module('finalProjectApp')
    .factory('UserService', function($resource){
-     return $resource('/api/user/:id',{
+     return $resource('/api/users/:id',{
        id: '@id'
      },{
        update: {

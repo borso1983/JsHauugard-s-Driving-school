@@ -9,5 +9,13 @@ angular.module('finalProjectApp')
             $scope.users = data;
             socket.syncUpdates('user', $scope.users);
             console.log($scope.users);
-          });
+
+
+          $scope.createNewUser= function(){
+            $state.go('administration.user-create', {
+            });
+          };
+
+
+    });
 });
