@@ -20,7 +20,11 @@
     "angular-summernote": "^0.8.1",
     "trumbowyg": "^2.0.5",
     "angular-bootstrap-calendar": "^0.19.6",
-    "ui-listView": "^0.0.8"
+    "ui-listView": "^0.0.8",
+    "angular-slick": "^0.2.1",
+    "ng-file-upload": "^12.0.4",
+    "ng-img-crop": "ngImgCrop#^0.3.2",
+    "v-accordion": "^1.6.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",

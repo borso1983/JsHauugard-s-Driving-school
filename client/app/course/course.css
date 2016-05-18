@@ -8,3 +8,14 @@ ul
 {
     list-style-type: none!important;
 }
+.progress {
+  border: 1px solid #337ab7;
+  height: 30px;
+
+}
+i { line-height: 28px; }
+.progress-bar {
+
+  background: #337ab7!important;
+  transition: width 1s ease-in-out;
+}

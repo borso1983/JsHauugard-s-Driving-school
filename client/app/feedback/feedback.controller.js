@@ -1,31 +1,17 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('FeedbackCtrl', function ($scope, moment) {
+  .controller('FeedbackCtrl', function ($scope, moment, $http, socket) {
     $scope.message = 'Hello';
+    $scope.calendarView = 'month';
+    $scope.calendarDate = Date.now();
 
-    var vm = this;
+    $http.get('/api/courses')
+       .success(function(data) {
+         $scope.courses = data;
+         socket.syncUpdates('course', $scope.courses);
+         console.log($scope.courses);
+       });
 
-   vm.events = [
-     {
-       title: 'Draggable event',
-       type: 'warning',
-       startsAt: moment().startOf('month').toDate(),
-       draggable: true
-     },
-     {
-       title: 'Non-draggable event',
-       type: 'info',
-       startsAt: moment().startOf('month').toDate(),
-       draggable: false
-     }
-   ];
 
-   vm.calendarView = 'month';
-   vm.viewDate = moment().startOf('month').toDate();
-   vm.isCellOpen = true;
-
-  //  vm.eventTimesChanged = function(event) {
-  //   // alert.show('Dragged and dropped', event);
-  //  };
   });

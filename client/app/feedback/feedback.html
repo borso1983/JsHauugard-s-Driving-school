@@ -1,13 +1,16 @@
 <div>This is the feedback view.</div>
-<div ng-controller="FeedbackCtrl as vm">
-<mwl-calendar
-  events="vm.events"
-  view="vm.calendarView"
-  view-date="vm.viewDate"
-  cell-is-open="vm.isCellOpen"
-  edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
-  delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
-  on-edit-event-click="vm.eventEdited(calendarEvent)"
-  on-delete-event-click="vm.eventDeleted(calendarEvent)">
-</mwl-calendar>
+<div>
+  <mwl-calendar
+      view="calendarView"
+    view-date="calendarDate"
+      events="course.events"
+      view-title="calendarTitle"
+      on-event-click="eventClicked(calendarEvent)"
+      on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+      edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+      delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+      on-edit-event-click="eventEdited(calendarEvent)"
+      on-delete-event-click="eventDeleted(calendarEvent)"
+      cell-is-open="true">
+  </mwl-calendar>
 <div>

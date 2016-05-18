@@ -119,6 +119,7 @@ Course.find({}).removeAsync()
         description : 'Driving Lessons',
         students: ['569e69cc1ab998358d376677', '569e69cc1ab998358d37667a'
       ]
+
     })
     .then(() => {
         console.log('finished populating courses');

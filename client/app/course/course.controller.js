@@ -4,6 +4,9 @@ angular.module('finalProjectApp')
   .controller('CourseCtrl', function ($scope, $http, $state, socket) {
 
 
+
+
+
     $http.get('/api/courses')
        .success(function(data) {
          $scope.courses = data;
