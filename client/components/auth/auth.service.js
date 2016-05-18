@@ -20,10 +20,10 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @param  {Function} callback - optional, function(error, user)
      * @return {Promise}
      */
-    login({email, password}, callback) {
+    login(user, callback) {
       return $http.post('/auth/local', {
-        email: email,
-        password: password
+        email: user.email,
+        password: user.password
       })
         .then(res => {
           $cookies.put('token', res.data.token);
@@ -78,7 +78,9 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @return {Promise}
      */
     changePassword(oldPassword, newPassword, callback) {
-      return User.changePassword({ id: currentUser._id }, {
+      return User.changePassword({
+         id: currentUser._id
+        }, {
         oldPassword: oldPassword,
         newPassword: newPassword
       }, function() {
@@ -143,10 +145,17 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     hasRole(role, callback) {
       var hasRole = function(theUsersRoles, roleToTestFor) {
         var userIsInrole;
+<<<<<<< HEAD
         if (Array.isArray(theUsersRoles)) {
           theUsersRoles.forEach(function(userRole) {
             if (userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)) {
               userIsInrole = true;
+=======
+        if(Array.isArray(theUsersRoles)){
+          theUsersRoles.forEach(function(userRole){
+            if(userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)){
+            userIsInrole = true;
+>>>>>>> 7c629362100a440988f37673dce890eac23c81cc
             }
           });
         }

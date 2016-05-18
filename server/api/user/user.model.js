@@ -10,7 +10,11 @@ var UserSchema = new Schema({
     type: String,
     lowercase: true
   },
+<<<<<<< HEAD
   role: [{
+=======
+  role:[{
+>>>>>>> 7c629362100a440988f37673dce890eac23c81cc
     type: String,
     default: 'user'
   }],

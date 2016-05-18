@@ -1,9 +1,19 @@
 'use strict';
 
+import _ from 'lodash';
 import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
+
+function respondWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -12,10 +22,31 @@ function validationError(res, statusCode) {
   }
 }
 
+function handleEntityNotFound(res) {
+  return function(entity) {
+    if (!entity) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
+  };
+}
+
+
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
     res.status(statusCode).send(err);
+  };
+}
+
+function saveUpdates(updates) {
+  return function(entity) {
+    var updated = _.merge(entity, updates);
+    return updated.saveAsync()
+      .spread(updated => {
+        return updated;
+      });
   };
 }
 
@@ -46,6 +77,19 @@ export function create(req, res, next) {
       res.json({ token });
     })
     .catch(validationError(res));
+}
+
+
+// Updates an existing User in the DB
+export function update(req, res) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
 /**
