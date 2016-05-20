@@ -15,27 +15,26 @@
      <div class="menu">
        <ul id="menu" >
 
-         <li id="menu-home" ><a href="#" ui-sref="administration.overview"><i class="fa fa-home"></i><span class="gap">Home</span></a></li>
-         <li id="menu-comunicacao" ><a href="#" ><i class="fa fa-wrench"></i><span class="gap">Content</span><span class="fa fa-angle-double-right" style="float: right"></span></a>
-           <ul id="menu-comunicacao-sub" >
-             <li id="menu-mensagens" style="width: 120px" ><a href="#" ui-sref="administration.course"><i class="fa fa-users"></i> Courses</a>
-               <!-- <ul id="menu-mensagens-sub" >
-                 <li id="menu-mensagens-enviadas" ><a href="#">User Roles</a></li>
+         <li id="menu-home" ><a href="#" ui-sref="administration.overview">
+            <md-tooltip ng-if="toggle" md-direction="right">Home </md-tooltip>
+           <i class="fa fa-home"></i><span class="gap">Home</span></a></li>
+         <li id="menu-comunicacao" ><a href="#" ui-sref="administration.course">
+           <md-tooltip ng-if="toggle" md-direction="right">Courses </md-tooltip>
+           <i class="fa fa-users"></i><span class="gap">Courses</span></a>
 
-               </ul> -->
-             </li>
-             <!-- <li id="menu-arquivos" ><a href="#" ui-sref="administration.page"><i class="fa fa-file-text-o"></i> User</a></li> -->
-           </ul>
          </li>
 
-         <li><a href="#" ui-sref="administration.page"><i class="fa fa-file-text-o"></i><span class="gap">Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
-           <ul>
-             <li><a href="#"><i class="fa fa-commenting-o "></i> Feedbacks</a></li>
+         <li><a href="#" ui-sref="administration.page">
+           <md-tooltip ng-if="toggle" md-direction="right">Content </md-tooltip>
+        <i class="fa fa-file-text-o"></i><span class="gap">Content</span></a>
 
-           </ul>
          </li>
-         <li><a href="#" ui-sref="administration.user"><i class="fa fa-user"></i><span class="gap">Users</span></a></li>
-         <li><a href="#" ui-sref="administration.slider"><i class="fa fa-file-image-o"></i><span class="gap">Slider</span></a></li>
+         <li><a href="#" ui-sref="administration.user">
+           <md-tooltip ng-if="toggle" md-direction="right">Users </md-tooltip>
+           <i class="fa fa-user"></i><span class="gap">Users</span></a></li>
+         <li><a href="#" ui-sref="administration.slider">
+           <md-tooltip ng-if="toggle" md-direction="right">Slider </md-tooltip>
+           <i class="fa fa-file-image-o"></i><span class="gap">Slider</span></a></li>
        </ul>
      </div>
    </div>

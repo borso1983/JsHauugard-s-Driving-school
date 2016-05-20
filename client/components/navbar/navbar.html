@@ -14,16 +14,14 @@
         <li ng-repeat="item in nav.menu" ui-sref-active="active">
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
-        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
          <li ng-class="{active: isActive('/courses')}"><a href="/course">Courses</a></li>
-         <li ng-class="{active: isActive('/students')}"><a href="/student">Student</a></li>
-          <li ng-show="nav.isAdmin()" ui-sref-active="active"><a href="/administration/user">User</a></li>
+          <li ng-class="{active: isActive('/courses')}" ng-show="nav.isAdmin()" ui-sref-active="active"><a href="/administration">Administration</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show= "nav.isLoggedIn()"ui-sref-active="active"><a ui-sref="edit">Profile {{ nav.getCurrentUser().name }}</a></li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show= "nav.isLoggedIn()"ui-sref-active="active"><a ui-sref="profile">Hi! {{ nav.getCurrentUser().name }}</a></li>
+        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-calendar"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
       </ul>
     </div>

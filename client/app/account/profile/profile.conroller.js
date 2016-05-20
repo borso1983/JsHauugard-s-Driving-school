@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('finalProjectApp')
- .controller('EditController', function($scope, $stateParams ,socket, $state,  UserService, Auth){
+ .controller('ProfileController', function($scope, $stateParams ,socket, $state,  UserService, Auth){
 
     $scope.message = 'Hello';
 
@@ -12,7 +12,7 @@ angular.module('finalProjectApp')
     }
 
 
-    $scope.updateUser = function(currentUser){
+  $scope.updateUser = function(currentUser){
       $scope.submitted = true;
       if ($scope.form.$valid) {
         UserService.update({

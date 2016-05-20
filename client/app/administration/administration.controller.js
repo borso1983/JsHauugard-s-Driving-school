@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('AdministrationCtrl', function () {
+  .controller('AdministrationCtrl', function ($scope) {
 
 
-    var toggle = true;
+    $scope.toggle = true;
+
 
       angular.element('.sidebar-icon').click(function() {
-      if (!toggle){
+      if (!$scope.toggle){
         angular.element('.page-container').addClass('sidebar-collapsed').removeClass('sidebar-collapsed-back');
         angular.element('#menu span').css({'position':'absolute'});
       }
@@ -18,7 +19,7 @@ angular.module('finalProjectApp')
         }, 400);
       }
 
-    toggle = !toggle;
+    $scope.toggle = !$scope.toggle;
 
     });
 
