@@ -107,6 +107,10 @@ export function addStudentToList(req, res, next) {
     if (!course) {
       return res.status(401).end();
     }
+
+    if(typeof(course.students) === "undefined" || course.students === null) {
+      course.students =[];
+    }
     //adding a student into the student array
     course.students.push(req.params.userId);
     //decrease course occupied  by one
@@ -131,8 +135,11 @@ export function addEventToList(req, res, next) {
     if (!course) {
       return res.status(401).end();
     }
+    if(typeof(course.events) === "undefined" || course.events === null) {
+      course.events =[];
+    }
     //adding an event into the events array
-    course.events.push();
+    course.events.push(req.body);
 
     //save and return
     course.saveAsync()
@@ -142,6 +149,7 @@ export function addEventToList(req, res, next) {
 
   })
   .catch(err => next(err));
+
 }
 
 
