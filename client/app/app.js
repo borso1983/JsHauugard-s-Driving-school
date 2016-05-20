@@ -16,7 +16,11 @@
     'ngAnimate',
     'summernote',
     'mwl.calendar',
-    'ui-listView'
+    'ui-listView',
+    'slick',
+    'ngFileUpload',
+    'ngImgCrop',
+    'vAccordion'
   ])
 
 

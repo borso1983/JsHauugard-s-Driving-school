@@ -16,7 +16,7 @@
        <ul id="menu" >
 
          <li id="menu-home" ><a href="#" ui-sref="administration.overview"><i class="fa fa-home"></i><span class="gap">Home</span></a></li>
-         <li id="menu-comunicacao" ><a href="#" ><i class="fa fa-wrench"></i><span class="gap">Website administration</span><span class="fa fa-angle-double-right" style="float: right"></span></a>
+         <li id="menu-comunicacao" ><a href="#" ><i class="fa fa-wrench"></i><span class="gap">Content</span><span class="fa fa-angle-double-right" style="float: right"></span></a>
            <ul id="menu-comunicacao-sub" >
              <li id="menu-mensagens" style="width: 120px" ><a href="#" ui-sref="administration.course"><i class="fa fa-users"></i> Courses</a>
                <!-- <ul id="menu-mensagens-sub" >
@@ -24,23 +24,18 @@
 
                </ul> -->
              </li>
-             <li id="menu-arquivos" ><a href="#" ui-sref="administration.page"><i class="fa fa-file-text-o"></i> Pages</a></li>
+             <!-- <li id="menu-arquivos" ><a href="#" ui-sref="administration.page"><i class="fa fa-file-text-o"></i> User</a></li> -->
            </ul>
          </li>
-         <li id="menu-academico" ><a href="#"><i class="fa fa-users"></i><span class="gap">Student</span><span class="fa fa-angle-right" style="float: right"></span></a>
-           <!-- <ul id="menu-academico-sub" >
-             <li id="menu-academico-avaliacoes" ><a href="#">Contact us</a></li>
-             <li id="menu-academico-boletim" ><a href="#">About us</a></li>
-           </ul> -->
-         </li>
-         <li><a href="#"><i class="fa fa-file-text-o"></i><span class="gap">Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
+
+         <li><a href="#" ui-sref="administration.page"><i class="fa fa-file-text-o"></i><span class="gap">Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
            <ul>
              <li><a href="#"><i class="fa fa-commenting-o "></i> Feedbacks</a></li>
-             <li><a href="#"><i class="fa fa-pinterest"></i> Users</a></li>
+
            </ul>
          </li>
-         <li><a href="#"><i class="fa fa-history"></i><span class="gap">Blog</span></a></li>
-         <li><a href="#"><i class="fa fa-gears"></i><span class="gap">Settings</span></a></li>
+         <li><a href="#" ui-sref="administration.user"><i class="fa fa-user"></i><span class="gap">Users</span></a></li>
+         <li><a href="#" ui-sref="administration.slider"><i class="fa fa-file-image-o"></i><span class="gap">Slider</span></a></li>
        </ul>
      </div>
    </div>

@@ -14,5 +14,5 @@ router.put('/:id', auth.isAuthenticated(), controller.update);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 router.get('/getId/:email', controller.getUserIdByEmail);
-
+ 
 export default router;

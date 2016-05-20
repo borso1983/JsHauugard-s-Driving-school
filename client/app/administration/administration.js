@@ -53,10 +53,21 @@ angular.module('finalProjectApp')
       })*/
 
       .state('administration.user', {
-             url: '/administration/user',
-              templateUrl: 'app/administration/user-admin.html',
+             url: '/user',
+              templateUrl: 'app/administration/user/user-admin.html',
               controller: 'UserAdminCtrl'
       })
+<<<<<<< HEAD
+      .state('administration.user-edit', {
+             url: '/user/:id',
+              templateUrl: 'app/administration/user/user-edit.html',
+              controller: 'UserEditCtrl'
+      })
+      .state('administration.slider', {
+             url: '/slider',
+              templateUrl: 'app/administration/slider/slider-admin.html',
+              controller: 'SliderAdminCtrl'
+=======
       .state('user', {
         url: '/administration/user',
         templateUrl: 'app/administration/user/user-admin.html',
@@ -73,6 +84,7 @@ angular.module('finalProjectApp')
              url: '/administration/user/create',
               templateUrl: 'app/administration/user/create-user-admin.html',
               controller: 'CreateUserAdminCtrl'
+>>>>>>> 7c629362100a440988f37673dce890eac23c81cc
       });
 
   });
