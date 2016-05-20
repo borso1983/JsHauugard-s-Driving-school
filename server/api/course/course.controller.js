@@ -68,7 +68,9 @@ export function index(req, res) {
 
 // Gets a single Course from the DB
 export function show(req, res) {
-  Course.findByIdAsync(req.params.id)
+  Course.findById(req.params.id)
+    .populate('page')
+    .execAsync()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -86,7 +88,9 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Course.findByIdAsync(req.params.id)
+  Course.findById(req.params.id)
+    .populate('page')
+    .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
@@ -107,6 +111,29 @@ export function addStudentToList(req, res, next) {
     course.students.push(req.params.userId);
     //decrease course occupied  by one
     course.occupied++;
+    //save and return
+    course.saveAsync()
+      .spread(updated => {
+        return res.json(updated);
+      });
+
+  })
+  .catch(err => next(err));
+}
+
+export function addEventToList(req, res, next) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  //find a course by ID
+  Course.findByIdAsync(req.params.courseId)
+  .then(course => {
+    if (!course) {
+      return res.status(401).end();
+    }
+    //adding an event into the events array
+    course.events.push();
+
     //save and return
     course.saveAsync()
       .spread(updated => {

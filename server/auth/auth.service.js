@@ -51,25 +51,18 @@ export function hasRole(roleRequired) {
     .use(isAuthenticated())
     .use(function meetsRequirements(req, res, next) {
       var userIsInRole;
-<<<<<<< HEAD
-      if (Array.isArray(req.user.role)) {
-        req.user.role.forEach(function(userRole) {
-          if (config.userRoles.indexOf(userRole) >= config.userRoles.indexOf(roleRequired)) {
-=======
+
       if (Array.isArray(req.user.role)){
         req.user.role.forEach(function(userRole){
           if(config.userRoles.indexOf(userRole) >=config.userRoles.indexOf(roleRequired)){
->>>>>>> 7c629362100a440988f37673dce890eac23c81cc
+
             userIsInRole = true;
           }
         });
       }
-<<<<<<< HEAD
 
-      if (userIsInRole) {
-=======
       if(userIsInRole){
->>>>>>> 7c629362100a440988f37673dce890eac23c81cc
+
         next();
       } else {
         res.status(403).send('Forbidden');

@@ -6,10 +6,6 @@ var PageSchema = new mongoose.Schema({
   name: String,
   title: String,
   text: String,
-  meta: {
-    title: String,
-    description: String
-  } ,
   active: Boolean
 });
 

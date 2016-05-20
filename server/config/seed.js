@@ -11,6 +11,7 @@ import Page from '../api/page/page.model';
 
 
 
+
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
@@ -48,77 +49,52 @@ User.find({}).removeAsync()
          console.log('finished populating users');
        });
    });
-   Student.find({}).removeAsync()
-     .then(() => {
-       Student.createAsync(
-         {
-          _id: '569e69cc1ab998358d376677',
-         firstName: 'First',
-         lastName: 'User',
-         telNum : '28 911 848',
 
-         address: {
-           city: 'Esbjerg',
-           zipCode : 6700,
-           street : 'Spangsbjerg Kirkevej',
-           streetNumber : 20
-         },
-         owner: '569e69cc1ab998358d376678',
-         course :'119e69cc1ab998358d376677',
-         calendar: [{
-           eventDate: '12/10/2015',
-           description: '10.00 introduction'},
-           {
-           eventDate: '08/10/2015',
-           description: '16.00 theori'},
-           {
-          eventDate: '10/10/2015',
-           description: '16.00 theori'
-         }],
-       },
-         {
-           _id: '569e69cc1ab998358d37667a',
-         firstName: 'Second',
-         lastName: 'Student',
-         telNum : '48 911 848',
-
-         address: {
-           city: 'Esbjerg',
-           zipCode : 6700,
-           street : 'Spangsbjerg Kirkevej',
-           streetNumber : 25
-         },
-         owner: '569e69cc1ab998358d37667a',
-         course :'119e69cc1ab998358d376677',
-         calendar: [{
-           eventDate: '12/10/2015',
-           description: '10.00 introduction'},
-           {
-           eventDate: '08/10/2015',
-           description: '16.00 theori'},
-           {
-          eventDate: '10/10/2015',
-           description: '16.00 theori'
-         }],
-       })
-     .then(() => {
-       console.log('finished populating students');
-     });
- });
 
 Course.find({}).removeAsync()
   .then(() => {
     Course.createAsync({
       _id: '119e69cc1ab998358d376677',
-      startDate: '12/10/2015' ,
-        endDate: '12/01/2016' ,
+      date : {
+        start:'12/10/2015' ,
+        end: '12/01/2016'
+      },
         week: 25,
         capacity: 20,
         occupied: 16,
         page: '119e69cc1ab998358d376688',
         description : 'Driving Lessons',
-        students: ['569e69cc1ab998358d376677', '569e69cc1ab998358d37667a'
-      ]
+        user: ['569e69cc1ab998358d37667e', '569e69cc1ab998358d376678'
+      ],
+      events : [{
+        _id: '119e69cc1ab998358d37668f',
+        title:'New Event', // The title of the event
+        type: 'Info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        startsAt: '12/10/1990', // A javascript date object for when the event starts
+        endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
+        editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
+        deletable:  false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        draggable:  false, //Allow an event to be dragged and dropped
+        resizable:  false, //Allow an event to be resizable
+        incrementsBadgeTotal:  true, //If set to false then will not count towards the badge total amount on the month and year view
+        recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
+        cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
+
+      }, {
+        _id: '119e69cc1ab998358d37668c',
+        title:'Second Event', // The title of the event
+        type: 'Success', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        startsAt: '10/10/1990', // A javascript date object for when the event starts
+        endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
+        editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
+        deletable:  false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        draggable:  false, //Allow an event to be dragged and dropped
+        resizable:  false, //Allow an event to be resizable
+        incrementsBadgeTotal:  true, //If set to false then will not count towards the badge total amount on the month and year view
+        recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
+        cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
+
+      }]
 
     })
     .then(() => {
@@ -132,11 +108,13 @@ Course.find({}).removeAsync()
         _id: '119e69cc1ab998358d376688',
         name: 'coursePage',
         title: 'Here you can find the available courses',
-        text: "<h1>This is a test text just for set up something</h1>",
-        meta: {
-          title: "String",
-          description: "String"
-        } ,
+        text: "<h1>This is a test text just to set up something</h1>",
+        active: true
+      },{
+        _id: '119e69cc1ab998358d37667g',
+        name: 'anotherText',
+        title: 'Here you can find the available courses',
+        text: "<h1>blablbalbla</h1>",
         active: true
       })
       .then(() => {

@@ -15,7 +15,7 @@ angular.module('finalProjectApp')
             $scope.users = data;
             socket.syncUpdates('user', $scope.users);
             console.log($scope.users);
-<<<<<<< HEAD
+
           });
 
           $scope.userEdit = function(user) {
@@ -23,7 +23,7 @@ angular.module('finalProjectApp')
               id: user._id
             });
           };
-=======
+
 
 
           $scope.createNewUser= function(){
@@ -32,6 +32,4 @@ angular.module('finalProjectApp')
           };
 
 
-    });
->>>>>>> 7c629362100a440988f37673dce890eac23c81cc
 });

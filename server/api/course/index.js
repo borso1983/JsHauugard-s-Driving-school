@@ -12,5 +12,6 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 router.put('/assign/:courseId/:userId', controller.addStudentToList);
+router.put('/assign/:courseId', controller.addEventToList);
 
 module.exports = router;

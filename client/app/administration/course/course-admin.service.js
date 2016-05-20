@@ -10,6 +10,9 @@ angular.module('finalProjectApp')
         },
         paged: {
           method:'GET'
+        },
+        post : {
+          method:'POST'
         }
       });
 });

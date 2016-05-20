@@ -8,7 +8,7 @@ angular.module('finalProjectApp')
       console.log(user);
     });
     $scope.isLoggedIn = Auth.isLoggedIn;
-    
+  
     $scope.updateUser = function(user){
       $scope.submitted = true;
       if ($scope.form.$valid) {

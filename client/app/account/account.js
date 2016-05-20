@@ -30,12 +30,12 @@ angular.module('finalProjectApp')
         controller: 'SignupController',
         controllerAs: 'vm'
       })
-      .state('edit', {
-        url: '/edit',
-        templateUrl: 'app/account/edit/edit.html',
-        controller: 'EditController',
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'app/account/profile/profile.html',
+        controller: 'ProfileController',
         controllerAs: 'vm'
-      })
+      })      
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',

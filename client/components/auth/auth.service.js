@@ -145,17 +145,12 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     hasRole(role, callback) {
       var hasRole = function(theUsersRoles, roleToTestFor) {
         var userIsInrole;
-<<<<<<< HEAD
+
         if (Array.isArray(theUsersRoles)) {
           theUsersRoles.forEach(function(userRole) {
             if (userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)) {
               userIsInrole = true;
-=======
-        if(Array.isArray(theUsersRoles)){
-          theUsersRoles.forEach(function(userRole){
-            if(userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)){
-            userIsInrole = true;
->>>>>>> 7c629362100a440988f37673dce890eac23c81cc
+
             }
           });
         }
