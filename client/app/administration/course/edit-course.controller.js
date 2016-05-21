@@ -93,9 +93,13 @@ angular.module('finalProjectApp')
      };
 
      $scope.addNewEvent = function(course){
-      $http.put('/api/courses/assign/' + course._id, $scope.course.events)
+      $http.put('/api/courses/assign/' + course._id, $scope.newEvent)
       .success(function(){
+<<<<<<< HEAD
         $scope.course.events = { };
+=======
+        $scope.newEvent = {};//reset the form
+>>>>>>> 6dfe995449553d06b19134ea5332ba9b199dd8d9
         $mdToast.show(
             $mdToast.simple()
             .textContent('Page has changed !!')

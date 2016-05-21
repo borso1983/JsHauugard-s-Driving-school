@@ -146,11 +146,10 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
       var hasRole = function(theUsersRoles, roleToTestFor) {
         var userIsInrole;
 
-        if (Array.isArray(theUsersRoles)) {
-          theUsersRoles.forEach(function(userRole) {
-            if (userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)) {
-              userIsInrole = true;
-
+        if(Array.isArray(theUsersRoles)){
+          theUsersRoles.forEach(function(userRole){
+            if(userRoles.indexOf(userRole) >= userRoles.indexOf(roleToTestFor)){
+            userIsInrole = true;
             }
           });
         }

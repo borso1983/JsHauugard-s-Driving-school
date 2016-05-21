@@ -3,6 +3,6 @@
 exports = module.exports = {
   // List of user roles
 
-  userRoles: ['guest', 'user', 'admin', 'superAdmin']
+  userRoles: ['guest', 'user', 'admin', 'superAdmin', 'student', 'teacher' ]
 
 };

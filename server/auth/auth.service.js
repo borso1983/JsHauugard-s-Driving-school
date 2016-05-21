@@ -52,16 +52,15 @@ export function hasRole(roleRequired) {
     .use(function meetsRequirements(req, res, next) {
       var userIsInRole;
 
-      if (Array.isArray(req.user.role)){
-        req.user.role.forEach(function(userRole){
-          if(config.userRoles.indexOf(userRole) >=config.userRoles.indexOf(roleRequired)){
+      if (Array.isArray(req.user.role)) {
+        req.user.role.forEach(function(userRole) {
+          if (config.userRoles.indexOf(userRole) >= config.userRoles.indexOf(roleRequired)) {
 
             userIsInRole = true;
           }
         });
       }
-
-      if(userIsInRole){
+      if (userIsInRole) {
 
         next();
       } else {

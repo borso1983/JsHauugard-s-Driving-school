@@ -178,11 +178,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <md-datepicker ng-model="course.events.startsAt" md-placeholder="Enter date">
+                      <md-datepicker ng-model="newEvent.startsAt" md-placeholder="Enter date">
                       </md-datepicker>
                     </td>
                     <td>
-                      <md-datepicker ng-model="course.events.endsAt" md-placeholder="Enter date">
+                      <md-datepicker ng-model="newEvent.endsAt" md-placeholder="Enter date">
                       </md-datepicker>
                     </td>
                   </tr>
@@ -194,7 +194,7 @@
 
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Title</label>
-                  <input ng-model="course.events.title" md-maxlength="25">
+                  <input ng-model="newEvent.title" md-maxlength="25">
                   <div ng-messages="userForm.$error" role="alert" multiple>
                     <div ng-message="md-maxlength" class="my-message">
                       That would be a little bit too much...
@@ -203,7 +203,7 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Type</label>
-                  <md-select ng-model="type">
+                  <md-select ng-model="newEvent.type">
                     <md-option ng-repeat="type in evtypes" value="{{type}}">
                       {{type}}
                     </md-option>
