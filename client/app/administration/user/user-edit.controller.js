@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('EditUserCtrl', function (Auth,$scope, $state, $http, socket, $stateParams, UserAdminService) {
+  .controller('EditUserCtrl', function (Auth,$scope, $state, $http, socket, User, $stateParams, UserAdminService) {
 
-    UserAdminService.get({id:$stateParams.id}, function(user) {
+    User.get({name:$stateParams.name}, function(user) {
       $scope.user =  user;
       console.log(user);
     });
     $scope.isLoggedIn = Auth.isLoggedIn;
-  
+    $scope.currentUser = Auth.getCurrentUser();
+    if($scope.currentUser.address === undefined) {
+      $scope.currentUser.address = {};
+    }
+
     $scope.updateUser = function(user){
       $scope.submitted = true;
       if ($scope.form.$valid) {
@@ -19,10 +23,12 @@ angular.module('finalProjectApp')
            firstName : user.firstName,
            lastName: user.lastName,
            telNum: user.telNum,
-           city: user.address.city,
-           zipCode : user.address.zipCode,
-           street : user.address.street,
-           streetNumber : user.address.streetNumber
+           address: {
+             city: user.address.city,
+             zipCode : user.address.zipCode,
+             street : user.address.street,
+             streetNumber : user.address.streetNumber
+           }
 
          });
          $state.go('administration.user', {

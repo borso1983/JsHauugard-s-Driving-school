@@ -4,7 +4,7 @@ angular.module('finalProjectApp')
  .controller('ProfileController', function($scope, $stateParams ,socket, $state,  UserService, Auth){
 
     $scope.message = 'Hello';
-
+    socket.syncUpdates('user', $scope.currentUser);
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.currentUser = Auth.getCurrentUser();
     if($scope.currentUser.address === undefined) {

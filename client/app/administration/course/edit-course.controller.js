@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('EditCourseCtrl', function ($scope, $state, $http, socket, $stateParams, CourseAdminService, $mdToast, moment) {
+  .controller('EditCourseCtrl', function ($scope, $state, $http, socket, $stateParams, CourseAdminService, $mdToast) {
     CourseAdminService.get({id:$stateParams.id}, function(course) {
       $scope.course = course;
       $scope.events = $scope.events;
@@ -95,7 +95,7 @@ angular.module('finalProjectApp')
      $scope.addNewEvent = function(course){
       $http.put('/api/courses/assign/' + course._id, $scope.course.events)
       .success(function(){
-        $scope.course.events = {};
+        $scope.course.events = { };
         $mdToast.show(
             $mdToast.simple()
             .textContent('Page has changed !!')
