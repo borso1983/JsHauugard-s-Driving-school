@@ -11,19 +11,14 @@
     </div>
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        <i class="fa fa-exclamation-triangle"></i>
-        To change your <u>Password</u> please click
-        <a href="#" ui-sref="settings"><i class="fa fa-hand-o-right"></i><span class=""> Here</span></a>
-      </div>
+
       <h3>Personal info</h3>
       <form class="form-horizontal" role="form" name="form" novalidate>
         <div class="form-group" ng-class="{ 'has-success': form.firstName.$valid && submitted,
                                             'has-error': form.firstName.$invalid && submitted }">
           <label class="col-lg-3 control-label">First name:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="" ng-bind="user.firstName" type="text" ng-model="user.firstName"  required>
+            <input class="form-control" value="" type="text" ng-model="user.firstName"  required>
             <p class="help-block" ng-show="form.name.$error.required && submitted">
               First Name is required
             </p>
@@ -43,7 +38,7 @@
           <label class="col-lg-3 control-label">Phone Nr.:</label>
           <div class="col-lg-8">
             <input class="form-control" value="" type="tel"
-            pattern="^\d{2}\d{2}\d{2}\d{2}$"  name="tel" ng-model="user.telNum" required>
+              name="tel" ng-model="user.telNum" required>
             <p class="help-block" ng-show="form.tel.$error.required && submitted">
             The required format is XX-XX-XX-XX. (22-22-00-22)
              </p>
@@ -58,11 +53,11 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">City:</label>
           <div class="col-lg-4">
-            <input class="form-control" value="" type="text" ng-model="user.city" >
+            <input class="form-control" value="" type="text" ng-model="user.address.city" >
           </div>
           <label class="col-lg-2 control-label">Zip Code:</label>
           <div class="col-lg-2">
-            <input class="form-control" value="" type="text" ng-model="user.zipCode" >
+            <input class="form-control" value="" type="text" ng-model="user.address.zipCode" >
           </div>
         </div>
         <div class="form-group">
