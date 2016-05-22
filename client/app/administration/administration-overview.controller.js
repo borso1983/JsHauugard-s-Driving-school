@@ -1,8 +1,15 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('AdministrationOverviewCtrl', function () {
-
+  .controller('AdministrationOverviewCtrl', function ( $scope, $http, socket, $state, Auth){
+    // If user is not admin go back to main page
+        if(!Auth.isAdmin()) {
+          $state.go('main');
+          $scope.isAdmin =false;
+        }
+        else{
+          $scope.isAdmin = true;
+        }
 
     var toggle = true;
 
