@@ -168,7 +168,22 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
           return has;
         });
     },
+    /**
+     * Update large profile photo
+     */
+    updateProfilePhoto(photo, callback){
+      var cb = callback || angular.noop;
 
+      return User.updateProfilePhoto({id : currentUser._id}, {
+        photo: photo
+      }, function() {
+        currentUser = User.get();
+        return cb(currentUser);
+      }, function(err) {
+        currentUser = User.get();
+        return cb(err);
+      }).$promise;
+    },
      /**
       * Check if a user is an admin
       *   (synchronous|asynchronous)

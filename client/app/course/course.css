@@ -19,3 +19,6 @@ i { line-height: 28px; }
   background: #337ab7!important;
   transition: width 1s ease-in-out;
 }
+.contStyle{
+  min-height: 300px;
+}
