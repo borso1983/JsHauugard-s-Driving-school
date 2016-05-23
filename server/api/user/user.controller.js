@@ -143,6 +143,7 @@ export function changePassword(req, res, next) {
     });
 }
 
+
 /**
  * Get my info
  */
