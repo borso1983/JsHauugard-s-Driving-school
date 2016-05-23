@@ -9,10 +9,22 @@ class CreateUserAdminController {
   //end-non-standard
   constructor(Auth, $state, $stateParams, CourseService,  $http, $scope) {
     this.Auth = Auth;
+    this.Auth.isAdmin = Auth.isAdmin;
     this.$state = $state;
     this.$http = $http;
     this.$scope = $scope;
   }
+
+  hasAdminRole(Auth){
+    if(!Auth.isAdmin()) {
+      this.$state.go('main');
+      this.$scope.isAdmin =false;
+    }
+    else{
+      this.$scope.isAdmin = true;
+    }
+  }
+
 /*
   getUserIdByEmail(email, callback) {
     this.$http.get('/api/users/getId/' + email).then(response => {

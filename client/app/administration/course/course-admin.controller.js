@@ -1,7 +1,17 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('CourseAdminCtrl', function ($scope, $http, $state, socket) {
+  .controller('CourseAdminCtrl', function ($scope, $http, $state, socket, Auth) {
+
+    // If user is not admin go back to main page
+        if(!Auth.isAdmin()) {
+          $state.go('main');
+          $scope.isAdmin =false;
+        }
+        else{
+          $scope.isAdmin = true;
+        }
+
       $scope.showAdd = false;
 
 

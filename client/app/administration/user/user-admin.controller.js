@@ -5,6 +5,15 @@ angular.module('finalProjectApp')
       $scope.isAuthenticated = Auth.isLoggedIn;
 
       $scope.isAdmin = Auth.isAdmin;
+     //If not admin go back to main
+      if(!Auth.isAdmin()) {
+        $state.go('main');
+        $scope.isAdmin =false;
+      }
+      else{
+        $scope.isAdmin = true;
+      }
+
       $scope.users = User.query();
       $http.get('/api/users');
 

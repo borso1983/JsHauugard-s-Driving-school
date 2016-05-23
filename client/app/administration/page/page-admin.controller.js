@@ -1,7 +1,16 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('PageAdminCtrl', function ($scope, $http, socket, $state) {
+  .controller('PageAdminCtrl', function ($scope, $http, socket, $state, Auth) {
+
+    // If user is not admin go back to main page
+        if(!Auth.isAdmin()) {
+          $state.go('main');
+          $scope.isAdmin =false;
+        }
+        else{
+          $scope.isAdmin = true;
+        }
 
     $scope.message = 'Hello';
 

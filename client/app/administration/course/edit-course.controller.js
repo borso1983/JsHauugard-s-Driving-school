@@ -1,8 +1,20 @@
 'use strict';
 
 angular.module('finalProjectApp')
+
   .controller('EditCourseCtrl',
   function ($scope, $state, $http, socket, $stateParams, Auth, CourseAdminService, $mdToast, moment, $mdDialog) {
+
+
+
+    if(!Auth.isAdmin()) {
+      $state.go('main');
+      $scope.isAdmin =false;
+    }
+    else{
+      $scope.isAdmin = true;
+    }
+
     CourseAdminService.get({id:$stateParams.id}, function(course) {
       $scope.course = course;
       $scope.newEvent = $scope.events;

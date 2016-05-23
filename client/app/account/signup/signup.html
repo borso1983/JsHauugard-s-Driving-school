@@ -83,9 +83,9 @@
                                            'has-error': form.tel.$invalid && vm.submitted }">
          <md-input-container class="md-block" >
          <label>Phone Number </label>
-         <input type="tel" pattern="^\d{2} \d{2} \d{2} \d{2}$" name="tel" ng-model="vm.user.telNum" required/>
+         <input type="tel" pattern="^\d{2}\d{2}\d{2}\d{2}$"name="tel" ng-model="vm.user.telNum" required/>
          <p class="help-block" ng-show="form.tel.$error.required && vm.submitted">
-         The required format is XX XX XX XX. (70 00 01 10)
+         The required format is XXXXXXXX. (70000110)
           </p>
        </div>
         <div>
