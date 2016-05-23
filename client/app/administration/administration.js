@@ -39,19 +39,6 @@ angular.module('finalProjectApp')
               templateUrl: 'app/administration/course/edit-course.html',
               controller: 'EditCourseCtrl'
       })
-
-     /*  .state('administration.student', {
-             url: '/student',
-              templateUrl: 'app/administration/student/student-admin.html',
-              controller: 'StudentAdminCtrl'
-      })
-
-      .state('administration.student-edit', {
-             url: '/student/:id',
-              templateUrl: 'app/administration/student/edit-student.html',
-              controller: 'EditStudentCtrl'
-      })*/
-
       .state('administration.user', {
              url: '/user',
               templateUrl: 'app/administration/user/user-admin.html',
@@ -61,26 +48,13 @@ angular.module('finalProjectApp')
       .state('administration.user-edit', {
              url: '/user/:id',
               templateUrl: 'app/administration/user/user-edit.html',
-              controller: 'UserEditCtrl'
+              controller: 'EditUserCtrl'
       })
       .state('administration.slider', {
              url: '/slider',
               templateUrl: 'app/administration/slider/slider-admin.html',
               controller: 'SliderAdminCtrl'
-            })
-
-      .state('user', {
-        url: '/administration/user',
-        templateUrl: 'app/administration/user/user-admin.html',
-        controller: 'UserAdminCtrl'
       })
-
-      //.state('administration.user-edit', {
-      //       url: '/administration/user/:id',
-      //        templateUrl: 'app/administration/edit-user-admin.html',
-      //        controller: 'EditUserAdminCtrl'
-      //})
-
       .state('administration.user-create', {
              url: '/administration/user/create',
               templateUrl: 'app/administration/user/create-user-admin.html',

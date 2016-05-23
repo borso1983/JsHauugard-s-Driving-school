@@ -152,6 +152,34 @@ export function addEventToList(req, res, next) {
 
 }
 
+export function removeEventFromList(req, res, next) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  //find a course by ID
+  Course.findByIdAsync(req.params.courseId)
+  .then(course => {
+    if (!course) {
+      return res.status(401).end();
+    }
+    //remove an event
+    course.events.pull(req.params.eventId);
+
+    // _.remove(course.events, function(event) {
+    //   return event._id.equals(req.params.eventId);
+    // });
+    console.log(course.events);
+    //save and return
+    course.saveAsync()
+      .spread(updated => {
+        return res.json(updated);
+      });
+
+  })
+  .catch(err => next(err));
+
+}
+
 
 // Deletes a Course from the DB
 export function destroy(req, res) {

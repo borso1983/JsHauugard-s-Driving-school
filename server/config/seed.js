@@ -69,28 +69,28 @@ Course.find({}).removeAsync()
       events : [{
         _id: '119e69cc1ab998358d37668f',
         title:'New Event', // The title of the event
-        type: 'Info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        type: 'info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
         startsAt: '12/10/1990', // A javascript date object for when the event starts
         endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
         editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
-        deletable:  false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        deletable:  true, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
         draggable:  false, //Allow an event to be dragged and dropped
         resizable:  false, //Allow an event to be resizable
-        incrementsBadgeTotal:  true, //If set to false then will not count towards the badge total amount on the month and year view
+        incrementsBadgeTotal:  false, //If set to false then will not count towards the badge total amount on the month and year view
         recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
         cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
 
       }, {
         _id: '119e69cc1ab998358d37668c',
         title:'Second Event', // The title of the event
-        type: 'Success', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        type: 'success', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
         startsAt: '10/10/1990', // A javascript date object for when the event starts
         endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
         editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
-        deletable:  false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        deletable:  true, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
         draggable:  false, //Allow an event to be dragged and dropped
         resizable:  false, //Allow an event to be resizable
-        incrementsBadgeTotal:  true, //If set to false then will not count towards the badge total amount on the month and year view
+        incrementsBadgeTotal:  false, //If set to false then will not count towards the badge total amount on the month and year view
         recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
         cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
 

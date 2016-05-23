@@ -1,0 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+.navbar-brand{
+  font-family: Montserrat;
+  font-size: 78px;
+}

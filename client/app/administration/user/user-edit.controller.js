@@ -2,23 +2,25 @@
 
 angular.module('finalProjectApp')
   .controller('EditUserCtrl', function (Auth,$scope, $state, $http, socket, User, $stateParams, UserAdminService) {
-
-    User.get({name:$stateParams.name}, function(user) {
+    console.log($stateParams.id);
+    User.get({id:$stateParams.id}, function(user) {
+    //User.get({name:$stateParams.name}, function(user) {
       $scope.user =  user;
       console.log(user);
     });
+
     $scope.isLoggedIn = Auth.isLoggedIn;
-    $scope.currentUser = Auth.getCurrentUser();
-    if($scope.currentUser.address === undefined) {
-      $scope.currentUser.address = {};
-    }
+
+    // if($scope.user.address === undefined) {
+    //   $scope.user.address = {};
+    // }
 
     $scope.updateUser = function(user){
       $scope.submitted = true;
       if ($scope.form.$valid) {
         UserAdminService.update({
-           name : user.name,
            id: user._id,
+           name : user.name,
            email:user.email,
            firstName : user.firstName,
            lastName: user.lastName,

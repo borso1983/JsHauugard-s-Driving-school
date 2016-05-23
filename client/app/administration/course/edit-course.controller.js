@@ -1,16 +1,20 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('EditCourseCtrl', function ($scope, $state, $http, socket, $stateParams, CourseAdminService, $mdToast) {
+  .controller('EditCourseCtrl',
+  function ($scope, $state, $http, socket, $stateParams, Auth, CourseAdminService, $mdToast, moment, $mdDialog) {
     CourseAdminService.get({id:$stateParams.id}, function(course) {
       $scope.course = course;
-      $scope.events = $scope.events;
-      $scope.dtStart = new Date($scope.course.date.end);
-      $scope.dtEnd = new Date($scope.course.date.start);
+      $scope.newEvent = $scope.events;
+      $scope.dtStart = moment($scope.course.date.end).toDate();
+      $scope.dtEnd = moment($scope.course.date.start).toDate();
       // $scope.events.startsAt = moment($scope.events.startsAt).toDate();
       // $scope.events.endsAt = moment($scope.events.endsAt).toDate();
 
     });
+    $scope.isAuthenticated = Auth.isLoggedIn;
+    $scope.isAdmin = Auth.isAdmin;
+
 
     $scope.calendarView = 'month';
     $scope.calendarDate = Date.now();
@@ -22,7 +26,7 @@ angular.module('finalProjectApp')
       type: 'Important'
     };
 
-    $scope.evtypes = ['Important', 'Warning', 'Info', 'Inverse', 'Success', 'Special'];
+    $scope.evtypes = ['important', 'warning', 'info', 'inverse', 'success', 'special'];
 
     $scope.hideEmail = true;
 
@@ -67,9 +71,10 @@ angular.module('finalProjectApp')
 
      $scope.eventClick = function() {
        $scope.tabSettings.locked = true;
-        // $scope.tabSettings.selectedIndex = 3 ;
           $scope.tabSettings.label = '';
      };
+
+
 
      $scope.cancelEvent = function() {
        $scope.tabSettings.locked = true;
@@ -81,25 +86,12 @@ angular.module('finalProjectApp')
           $scope.course.events.endsAt = '';
      };
 
-     $scope.updateEvents = function(course) {
-           CourseAdminService.update({
-             id: course.events._id,
-             title: course.events.title,
-             startsAt: course.events.startsAt,
-             endsAt: course.events.endsAt,
-             type: course.events.type
-           });
-
-     };
-
      $scope.addNewEvent = function(course){
       $http.put('/api/courses/assign/' + course._id, $scope.newEvent)
       .success(function(){
-<<<<<<< HEAD
-        $scope.course.events = { };
-=======
+
         $scope.newEvent = {};//reset the form
->>>>>>> 6dfe995449553d06b19134ea5332ba9b199dd8d9
+
         $mdToast.show(
             $mdToast.simple()
             .textContent('Page has changed !!')
@@ -108,39 +100,37 @@ angular.module('finalProjectApp')
             .hideDelay(500)
 
         );
+        $state.reload();
+
       });
       $scope.showAdd = false;
 
     };
 
+    // if($scope.isAdmin){
+      $scope.eventDeleted = function(event) {
+        // $http.delete('/api/courses/delete/' + $scope.course._id +'/' + event._id)
+        // .success(function(){
+        //   socket.syncUpdates('course', $scope.course);
+        // });
+        $http.put('/api/courses/delete/' + $scope.course._id + '/' + event._id)
+        .success(function(){
 
-    //  $scope.addNewEvent = function(course){
-    //    CourseAdminService.post({
-    //      id: course.events._id,
-    //      events: {
-    //               title: course.events.title,
-    //               startsAt: course.events.startsAt,
-    //               endsAt: course.events.endsAt,
-    //               type: course.events.type
-    //             }
-    //    });
-    // };
+          $scope.newEvent = {};//reset the form
 
-  //   $scope.addNewEvent = function(course){
-  //    $http.post('/api/courses', $scope.newEvent)
-  //    .success(function(){
-  //      $scope.newEvent = {
-  //        events: {
-  //          title: course.events.title,
-  //          startsAt: course.events.startsAt,
-  //          endsAt: course.events.endsAt,
-  //          type: course.events.type
-  //        }
-  //      };
-  //       $scope.tabSettings.selectedIndex = 3 ;
-  //    });
-   //
-  //  };
+          $mdToast.show(
+              $mdToast.simple()
+              .textContent('Page has changed !!')
+              .position('top right')
+              .parent('#toastParent')
+              .hideDelay(500)
+
+          );
+          $state.reload();
+
+        });
+        $scope.showAdd = false;
+    };
 
      $scope.getPage = function(page) {
             console.log(page);
@@ -156,13 +146,28 @@ angular.module('finalProjectApp')
                   .hideDelay(500)
 
               );
-              // result.date.end = moment(result.date.end).toDate();
-              // result.date.start = moment(result.date.start).toDate();
-
               $scope.course = result;
             });
      };
 
+         $scope.eventClicked = function(event) {
+         // Appending dialog to document.body to cover sidenav in docs app
+         // Modal dialogs should fully cover application
+         // to prevent interaction outside of dialog
+         $mdDialog.show(
+           $mdDialog.alert()
+             .parent(angular.element(document.querySelector('#popupContainer')))
+             .clickOutsideToClose(true)
+             .title(event.title)
+
+
+             .textContent( moment(event.startsAt).format('MMM Do YY') + ' - ' + moment(event.endsAt).format('MMM Do YY') )
+             .ariaLabel('Event Popup')
+             .ok('Close')
+             .targetEvent(event)
+
+         );
+       };
 
      $scope.undoCourseEdit = function() {
        $state.go('administration.course', {

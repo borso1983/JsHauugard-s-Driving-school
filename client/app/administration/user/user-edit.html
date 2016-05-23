@@ -38,7 +38,7 @@
           <label class="col-lg-3 control-label">Phone Nr.:</label>
           <div class="col-lg-8">
             <input class="form-control" value="" type="tel"
-              name="tel" ng-model="user.telNum" required>
+              pattern="^\d{2}\d{2}\d{2}\d{2}$"   name="tel" ng-model="user.telNum" required>
             <p class="help-block" ng-show="form.tel.$error.required && submitted">
             The required format is XX-XX-XX-XX. (22-22-00-22)
              </p>

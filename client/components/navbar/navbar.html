@@ -1,20 +1,34 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
   <div class="container">
-    <div class="navbar-header">
+    <div class="col-md-12navbar-header">
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Haugaard's</a>
+      <a href="/" class="navbar-brand">
+        <!-- <div class="row">
+          <div class="col-md-12" style="margin-bottom:-5px; font-size:-23px;">
+            <i class="fa fa-car" aria-hidden="true"></i> Haugaard's
+          </div>
+          <div class="col-md-12">
+            <span style="font-size:13px;  letter-spacing: 2.3px; "> driving school</span>
+          </div>
+        </div> -->
+
+      </a>
     </div>
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
+        <li class="row" ng-repeat="item in nav.menu" ui-sref-active="active">
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
-         <li ng-class="{active: isActive('/courses')}"><a href="/course">Courses</a></li>
+         <li ng-class="{active: isActive('/Home')}"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+         <li ng-class="{active: isActive('/AboutUs')}"><a href="/AboutUs">About Us</a></li>
+         <li ng-class="{active: isActive('/Courses')}"><a href="/course">Courses</a></li>
+         <li ng-class="{active: isActive('/Contact')}"><a href="/contact">Contact</a></li>
           <li ng-class="{active: isActive('/courses')}" ng-show="nav.isAdmin()" ui-sref-active="active"><a href="/administration">Administration</a></li>
       </ul>
 

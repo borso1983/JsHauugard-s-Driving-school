@@ -11,7 +11,6 @@ var UserSchema = new Schema({
     lowercase: true
   },
   role: [{
-
     type: String,
     default: 'user'
   }],
@@ -21,12 +20,23 @@ var UserSchema = new Schema({
   firstName: String,
   lastName: String,
   telNum : String,
-
   address: {
-    city: String,
-    zipCode : Number,
-    street : String,
-    streetNumber : Number
+    city: {
+      type: String,
+      default: 'undefined'
+    },
+    zipCode: {
+      type:Number,
+      default : 0
+    },
+    street :{
+      type:String,
+      default : 'undefined'
+    },
+    streetNumber : {
+      type:Number,
+      default : 0
+    },
   },
   course :{
     type: mongoose.Schema.ObjectId,
