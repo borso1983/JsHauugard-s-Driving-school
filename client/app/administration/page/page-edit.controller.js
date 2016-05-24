@@ -12,6 +12,7 @@ angular.module('finalProjectApp')
           $scope.isAdmin = true;
         }
 
+      
 
     PageAdminService.get({id:$stateParams.id}, function(page) {
       $scope.page =  page;

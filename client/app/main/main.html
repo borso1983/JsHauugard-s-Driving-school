@@ -1,10 +1,10 @@
-<header class="hero-unit" id="banner">
-  <div class="container">
-    
-    <div style="width:700px; margin-right:auto; margin-left:auto;">
+<header class="" id="banner">
+  <div >
+
+    <div class="sliderCont" style="margin-top:-30px; ">
          <slick class="slider single-item" current-index="index" responsive="breakpoints" slides-to-show=1 slides-to-scroll=1 autoplay= true
-      autoplaySpeed= 2000 fade="true" speed=500 dots="true">
-          <div ng-repeat="i in ['1.jpg','2.jpg', '3.jpg']">
+      autoplaySpeed= 2000 fade="true" speed=500 dots="false" arrows="false">
+          <div ng-repeat="i in ['slider1.jpg','slider2.jpg', 'slider3.jpg']">
             <img class="img-responsive" src="assets/images/{{i}}"  />
           </div>
         </slick>
@@ -14,22 +14,57 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div >
+        <h2 class="titles">WHY CHOOSE US?</h2><br/>
+        <img src="assets/images/thumb.png" alt="driving">
+        <div class="caption">
+          <p>While many driving schools or instructors
+          just seek to educate drivers and send them
+          on their way,we are different.
+          We aim to keep the roads safe for drivers
+          of all ages through effective instructing
+          methods.
+          </p>
+          <p style="text-align:right;"><md-button ui-sref="aboutUs" class="md-primary btnColor">Read More</md-button></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="titles">
+        <h2>DRIVING CLASSES</h2><br/>
+        <img src="assets/images/thumb2.png" alt="on the road">
+        <div class="caption">
+          <p>
+            We have been offering driving courses and
+            working with drivers of all ages. Whether
+            you are a seasoned driver looking to brush
+            upon your skills or a young adult needing
+            to start your driving career, our instructors
+            are prepared to help..
+          </p>
+          <p style="text-align:right;"><md-button ui-sref="contact" class="md-primary btnColor">Read More</md-button></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="titles">
+        <h2>REGISTER ONLINE</h2><br/>
+        <img src="assets/images/thumb3.png" alt="apply">
+        <div class="caption">
 
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button></a></li>
-      </ul>
+          <p>
+            Online registration is available now!
+            We made it easy for you, you can register to
+            our courses from any device with internet
+            connection. However, if you would like
+            more information about the programs we
+            offer, please feel free to contact us.
+          </p>
+          <p style="text-align:right;"><md-button ui-sref="course" class="md-primary btnColor">Read More</md-button></p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="main.newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="main.addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
 </div>

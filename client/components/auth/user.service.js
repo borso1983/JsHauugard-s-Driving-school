@@ -17,6 +17,12 @@ function UserResource($resource) {
       params: {
         id: 'me'
       }
+    },
+    updateProfilePhoto: {
+      method: 'PUT',
+      params: {
+        controller: 'profilePhoto'
+      }
     }
   });
 }

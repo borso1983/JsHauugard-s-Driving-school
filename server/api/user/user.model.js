@@ -10,6 +10,7 @@ var UserSchema = new Schema({
     type: String,
     lowercase: true
   },
+  photo: String, 
   role: [{
     type: String,
     default: 'user'

@@ -1,20 +1,11 @@
-html,
-body {
-  height: 100%;
-  background: #eeeeee;
-}
 
 a,
 a:hover,
 a:active { text-decoration: none; }
 
-a {
-  color: #4393B9;
-  font-style: italic;
-  font-weight: 700;
-}
 
-a:hover { transition: all 200ms ease-in-out; }
+
+a:hover { transition: all 5ms ease-in-out; }
 .gap{
   margin-left: 10px;
   font-size:14px;
@@ -108,10 +99,10 @@ a:hover { transition: all 200ms ease-in-out; }
   top: 0;
   left: 0;
   bottom: 0;
-  background-color:#2c3e50;
+  background-color:#0F3246;
   color: #aaabae;
   font-family: "Segoe UI";
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
   z-index: 1;
 }
 #logo {
@@ -129,6 +120,7 @@ a:hover { transition: all 200ms ease-in-out; }
   margin: 0;
   padding: 0;
   margin-bottom: 20px;
+
 }
 
 #menu li {
@@ -137,6 +129,7 @@ a:hover { transition: all 200ms ease-in-out; }
   font-size: 12px;
   border-bottom: 1px solid rgba(69, 74, 84, 0.7);
   padding: 0;
+
 
 }
 {
@@ -160,16 +153,16 @@ a:hover { transition: all 200ms ease-in-out; }
 
 #menu li a:hover {
   color: #ffffff;
-  background-color: #333944;
+  background-color: #435F6F;
   transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
 
 #menu li.active > a {
-  background-color: #2b303a;
+  background-color: #435F6F;
   color: #ffffff;
 }
 
-#menu ul li { background-color: #2b303a; }
+#menu ul li { background-color: #435F6F; }
 
 #menu ul {
   list-style-type: none;
@@ -182,7 +175,7 @@ a:hover { transition: all 200ms ease-in-out; }
   visibility: hidden;
   left: 100%;
   top: -1px;
-  background-color: #2b303a;
+  background-color: #435F6F;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.1s linear;
@@ -219,7 +212,8 @@ a:hover { transition: all 200ms ease-in-out; }
   position: relative;
   float: left;
   margin-top: 32px;
-  border: 1px solid #454a54;
+  border: 1px solid #F7F7F7;
+  background-color: #F7F7F7;
   text-align: center;
   line-height: 1;
   font-size: 18px;
@@ -227,9 +221,11 @@ a:hover { transition: all 200ms ease-in-out; }
   border-radius: 3px;
   color: #888;
   background-clip: padding-box;
-  text-shadow: 4px 4px 6px rgba(0,0,0,0.4);
-}
 
+}
+.idebar-icon:hover {
+  background-color: #aaabae;
+}
 .fa-html5 {
   color: #fff;
   margin-left: 50px;

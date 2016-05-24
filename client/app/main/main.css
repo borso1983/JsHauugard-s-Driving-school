@@ -1,18 +1,32 @@
 .thing-form {
   margin: 20px 0;
 }
-
+html, body {
+  background-color: #F7F7F7!important;
+}
 #banner {
   border-bottom: none;
   margin-top: -20px;
 }
-
+.btnColor{
+  color:#435F6F!important;
+}
 #banner h1 {
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
 }
-
+.navbar-default {
+  border: none;
+}
+.titles{
+  color:#435F6F;
+}
+.caption{
+  max-width:330px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
 .hero-unit {
   position: relative;
   padding: 30px 15px;
@@ -24,4 +38,10 @@
 
 .navbar-text {
   margin-left: 15px;
+}
+.sliderCont{
+  margin-left: 0;
+ margin-right: 0;
+ top: 0px;
+ width:100%;
 }

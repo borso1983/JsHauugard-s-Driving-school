@@ -50,11 +50,7 @@ angular.module('finalProjectApp')
               templateUrl: 'app/administration/user/user-edit.html',
               controller: 'EditUserCtrl'
       })
-      .state('administration.slider', {
-             url: '/slider',
-              templateUrl: 'app/administration/slider/slider-admin.html',
-              controller: 'SliderAdminCtrl'
-      })
+      
       .state('administration.user-create', {
              url: '/administration/user/create',
               templateUrl: 'app/administration/user/create-user-admin.html',

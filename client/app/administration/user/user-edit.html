@@ -4,9 +4,45 @@
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
-        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block well well-sm">
+        <!-- current user photo -->
+        <div class="photo-shadow" style="border:1px solid black" ng-show="user.photo" ng-cloak>
+          <img class="photo-img" data-ng-src="{{user.photo}}">
+        </div>
+
+
+        <div ng-show="!image.originalImage && !user.photo"
+             class="drop-box drop-box-container"
+             ngf-drag-over-class="drop-box-dragover"
+             ngf-change="readFileImg($files)"
+             ngf-drop ngf-select
+             ng-model="files"
+             ngf-multiple="false"
+             ngf-allow-dir="false"
+             accept="image/*" ng-cloak>
+          <span>Drop image or click to upload profile photo</span>
+        </div>
+        <img-crop ng-show="image.originalImage && !loading && !user.photo"
+                  image="image.originalImage"
+                  result-image="image.croppedImage"
+                  area-type="circle" ngf-accept="'image/*'"
+                  result-image-size="250"
+                  change-on-fly="true"
+                  class="drop-box-container"
+                  ng-cloak>
+        </img-crop>
+        <!--Save-->
+        <md-button ng-show="image.originalImage && !loading && !user.photo"
+                    ng-disabled="loading" ng-click="upload()"
+                    class="md-raised submit-button md-accent button-center block"
+                    ng-cloak>Save Photo</md-button>
+        <!--Reset-->
+        <md-button ng-show="user.photo" ngf-select
+                   ngf-change="readFileImg($files)"
+                   ng-disabled="loading" ngf-multiple="false"
+                   ngf-allow-dir="false" accept="image/*"
+                   class="button-center block"
+                   ng-cloak>Change Photo
+        </md-button>
       </div>
     </div>
     <!-- edit form column -->
