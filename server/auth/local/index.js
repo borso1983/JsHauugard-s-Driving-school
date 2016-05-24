@@ -2,6 +2,7 @@
 
 import express from 'express';
 import passport from 'passport';
+
 import {signToken} from '../auth.service';
 
 var router = express.Router();
