@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('finalProjectApp')
-  .controller('EditUserCtrl', function (Auth,$scope, $state, $http, socket, User, $stateParams, UserAdminService) {
+  .controller('EditUserCtrl', function (Auth,$scope, $state, $http, $mdToast, socket, User, $stateParams, UserAdminService, ImageService) {
 
     console.log($stateParams.id);
     // User.get({id:$stateParams.id}, function(user) {
@@ -56,6 +56,45 @@ angular.module('finalProjectApp')
          });
        }
      };
+
+
+          $scope.readFileImg = function(files) {
+            $scope.user.photo = undefined;
+            if (files && files.length) {
+              ImageService.readImageFile(files[0], function(err, img) {
+                if (err) {
+                  var toast = $mdToast.simple()
+                    .textContent('Image not saved')
+                    .action('Error')
+                    .highlightAction(false)
+                    .position('top')
+                    .theme('error-toast');
+                  return $mdToast.show(toast);
+                }
+                $scope.image.originalImage = img;
+              });
+            }
+          };
+
+          $scope.upload = function() {
+            if ($scope.image.croppedImage) {
+              $scope.loading = true;
+              Auth.updateProfilePhoto($scope.image.croppedImage,
+                function(user) {
+                  if(user){
+                    $scope.user = user;
+                    var toast = $mdToast.simple()
+                      .textContent('Photo saved')
+                      .action('OK')
+                      .highlightAction(true)
+                      .position('left');
+                    $mdToast.show(toast);
+                  }
+                  $scope.loading = false;
+                }
+              );
+            }
+          };
 
      $scope.undoPageEdit = function() {
        $state.go('administration.page', {

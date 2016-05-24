@@ -9,16 +9,28 @@ ul
     list-style-type: none!important;
 }
 .progress {
-  border: 1px solid #337ab7;
+  border: 1px solid #435F6F;
   height: 30px;
 
+}
+hr.style-two {
+  /*border-top: 1px dashed #c1c1c1;
+	border-bottom: 1px dashed #fff;*/
+  border-top: 1px solid #c1c1c1;
+border-bottom: 1px solid #fff;
 }
 i { line-height: 28px; }
 .progress-bar {
 
-  background: #337ab7!important;
+  background:#435F6F !important;
   transition: width 1s ease-in-out;
+}
+.btnReadMore{
+  color:##435F6F!important;
 }
 .contStyle{
   min-height: 300px;
+}
+.progressBar{
+  min-width: 170px;
 }

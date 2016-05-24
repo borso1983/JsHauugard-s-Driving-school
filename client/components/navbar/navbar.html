@@ -22,7 +22,7 @@
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <a href="/" class="navbar-brand hidden-xs">
 
-        <div class="row" style="width:200px; margin-top:-40px;">
+        <div class="row" style="width:200px; margin-top:-10px;">
           <div class="col-md-12 " style="margin-bottom:-5px; ">
             <i class="fa fa-car "  style="font-size:-23px;" aria-hidden="true"></i> Haugaard's
           </div>
@@ -37,7 +37,7 @@
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
          <li ng-class="{active: isActive('/Home')}"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-         <li ng-class="{active: isActive('/AboutUs')}"><a href="/AboutUs">About Us</a></li>
+         <li ng-class="{active: isActive('/AboutUs')}"><a href="/aboutUs">About Us</a></li>
          <li ng-class="{active: isActive('/Courses')}"><a href="/course">Courses</a></li>
          <li ng-class="{active: isActive('/Contact')}"><a href="/contact">Contact</a></li>
           <li ng-class="{active: isActive('/courses')}" ng-show="nav.isAdmin()" ui-sref-active="active"><a href="/administration">Administration</a></li>

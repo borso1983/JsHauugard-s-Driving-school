@@ -63,7 +63,51 @@ Course.find({}).removeAsync()
         capacity: 20,
         occupied: 16,
         page: '119e69cc1ab998358d376688',
-        description : 'Driving Lessons',
+        description : 'Motor Bike Drivers Permit',
+        user: ['569e69cc1ab998358d37667e', '569e69cc1ab998358d376678'
+      ],
+      events : [{
+        _id: '119e69cc1ab998358d37668f',
+        title:'New Event', // The title of the event
+        type: 'info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        startsAt: '12/10/1990', // A javascript date object for when the event starts
+        endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
+        editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
+        deletable:  true, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        draggable:  false, //Allow an event to be dragged and dropped
+        resizable:  false, //Allow an event to be resizable
+        incrementsBadgeTotal:  false, //If set to false then will not count towards the badge total amount on the month and year view
+        recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
+        cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
+
+      }, {
+        _id: '119e69cc1ab998358d37668c',
+        title:'Second Event', // The title of the event
+        type: 'success', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special
+        startsAt: '10/10/1990', // A javascript date object for when the event starts
+        endsAt: '12/10/1990', // Optional - a javascript date object for when the event ends
+        editable:   false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable.
+        deletable:  true, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable
+        draggable:  false, //Allow an event to be dragged and dropped
+        resizable:  false, //Allow an event to be resizable
+        incrementsBadgeTotal:  false, //If set to false then will not count towards the badge total amount on the month and year view
+        recursOn:  'month', // If set the event will recur on the given period. Valid values are year or month
+        cssClass:'none', //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc
+
+      }]
+
+
+    },{
+      _id: '119e69cc1ab998358d376656',
+      date : {
+        start:'12/10/2015' ,
+        end: '12/01/2016'
+      },
+        week: 25,
+        capacity: 16,
+        occupied: 10,
+        page: '119e69cc1ab998358d37667g',
+        description : 'Basic Car Drivers Permit',
         user: ['569e69cc1ab998358d37667e', '569e69cc1ab998358d376678'
       ],
       events : [{
@@ -107,14 +151,14 @@ Course.find({}).removeAsync()
       Page.createAsync({
         _id: '119e69cc1ab998358d376688',
         name: 'coursePage',
-        title: 'Here you can find the available courses',
-        text: "<h1>This is a test text just to set up something</h1>",
+        title: 'Motor drivers licence',
+        text: "<h4>Everyone, regardless of age, first gets a learner's permit to practice driving your motorcycle before the driving test. If you're under 18 years old, you must have your permit for 6 months before the driving test.</h4>",
         active: true
       },{
         _id: '119e69cc1ab998358d37667g',
         name: 'anotherText',
-        title: 'Here you can find the available courses',
-        text: "<h1>blablbalbla</h1>",
+        title: 'Car drivers permit',
+        text: "<h4>Getting your driver’s license isn't easy, but you don't have to do it without any help. There are plenty of resources and practice tests out there to help you learn what you need to learn.</h4>",
         active: true
       })
       .then(() => {
